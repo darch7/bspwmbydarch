@@ -13,11 +13,9 @@ super + q
 # set the node flags
 super + ctrl + {m,x,y,z}
 		bspc node -g {marked,locked,sticky,private}
-
 #Apps-------------------------------------------------------------------
 super + {e,w,v,b,n,m,l,t,a,h,k}
 		{pcmanfm,google-chrome-stable,pavucontrol,transmission-gtk,nitrogen,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U,leafpad,telegram-desktop,st -e nmtui,st -e htop,virt-manager}
-
 #Manejos de ventanas----------------------------------------------------
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}
@@ -42,7 +40,6 @@ super + {grave,Tab}
 # Enviar ventanas a otra area de trabajo
 super + {_,shift + }{1-9,0}
 		bspc {desktop -f,node -d} '^{1-9,10}'
-
 #preselect--------------------------------------------------------------
 # Preseleccion para lanzar ventanas
 super + p
@@ -55,7 +52,6 @@ super + shift + p
 # preselect the ratio
 super + ctrl + {1-9}
 		bspc node -o 0.{1-9}
-
 #move/resize------------------------------------------------------------
 # mover ventana flotante
 super + alt + {Left,Down,Up,Right}
@@ -72,7 +68,6 @@ ctrl + shift + {Left,Down,Up,Right}
 # resize gaps de ventanas
 super { ,+ shift }+ z
 		bspc config window_gap $(($(bspc config window_gap) {+,-} 3))
-
 #Multimedia-------------------------------------------------------------
 #Raises Volume
 XF86AudioRaiseVolume
@@ -108,7 +103,6 @@ super + Print
 # Monitor
 super + shift + m
 		$HOME/.config/bspwm/scripts/monitor
-
 #Atajos y Utilidades----------------------------------------------------
 # Calendario/Clima/Calculadora/Bluetooth/Redshift
 alt + {F1,F2,F3,F4,F5}
