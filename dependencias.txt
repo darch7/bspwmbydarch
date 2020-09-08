@@ -3,7 +3,7 @@ git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh
 
 ------------------------------------------------------------------------
 
-sudo pacman -S neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk
+sudo pacman -S lxrandr neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk
 dmenu blueman nitrogen pavucontrol geany neovim sxiv --noconfirm
 
 
