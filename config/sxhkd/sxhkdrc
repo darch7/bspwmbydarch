@@ -102,7 +102,7 @@ super + Print
 		$HOME/.config/bspwm/scripts/menugrabacion
 # Monitor
 super + shift + m
-		$HOME/.config/bspwm/scripts/monitor
+		lxrandr
 #Atajos y Utilidades----------------------------------------------------
 # Calendario/Clima/Calculadora/Bluetooth/Redshift
 alt + {F1,F2,F3,F4,F5}
