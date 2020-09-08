@@ -1,0 +1,118 @@
+#Atajos Basicos---------------------------------------------------------
+# terminal/launch menu
+super + {Return,d}
+		{st,dmenu_run}
+
+# actualizar sxhkdrc-Bspwmrc/cerrar sesion/bloquear pantalla/apagar/reiniciar
+shift + {a,s,c,b,p,r}
+		{bspc wm -r;dunstify -i ~/.config/bspwm/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.config/bspwm/scripts/arch.png SXHKDRC RECARGADO,killall panel;bspc quit,slock,poweroff,reboot}
+# Cerrar apps
+super + q
+		bspc node -{c,k}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+		bspc node -g {marked,locked,sticky,private}
+
+#Apps-------------------------------------------------------------------
+super + {e,w,v,b,n,m,l,t,a,h,k}
+		{pcmanfm,google-chrome-stable,pavucontrol,transmission-gtk,nitrogen,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U,leafpad,telegram-desktop,st -e nmtui,st -e htop,virt-manager}
+
+#Manejos de ventanas----------------------------------------------------
+# rotar ventanas 90°/ventana flotante/fijar ventana/
+super + {o,s,i}
+		{bspc node @focused:/ -R 90,bspc node focused -t \~floating,bspc node -g sticky}
+
+# Cursor de ventanas
+super + {_,shift + }{Left,Down,Up,Right}
+		bspc node -{f,s} {west,south,north,east}
+
+# Fullscreen 
+super + f
+		 bspc node -t {fullscreen,tiled}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+		bspc desktop -f {prev,next}.local
+
+# Volver a el area de trabajo anterior
+super + {grave,Tab}
+		bspc {node,desktop} -f last
+
+# Enviar ventanas a otra area de trabajo
+super + {_,shift + }{1-9,0}
+		bspc {desktop -f,node -d} '^{1-9,10}'
+
+#preselect--------------------------------------------------------------
+# Preseleccion para lanzar ventanas
+super + p
+		bspc node -p "~"{west,north,east,south}
+
+# Cancelar preseleccion
+super + shift + p
+		bspc node -p cancel
+
+# preselect the ratio
+super + ctrl + {1-9}
+		bspc node -o 0.{1-9}
+
+#move/resize------------------------------------------------------------
+# mover ventana flotante
+super + alt + {Left,Down,Up,Right}
+		bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# expander ventana
+ctrl + {Left,Down,Up,Right}
+		bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contraer ventana
+ctrl + shift + {Left,Down,Up,Right}
+		bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# resize gaps de ventanas
+super { ,+ shift }+ z
+		bspc config window_gap $(($(bspc config window_gap) {+,-} 3))
+
+#Multimedia-------------------------------------------------------------
+#Raises Volume
+XF86AudioRaiseVolume
+		amixer set Master 5%+		
+#Lowers volume
+XF86AudioLowerVolume
+		amixer set Master 5%-
+#Mute
+XF86AudioMute
+		amixer -D pulse set Master 1+ toggle
+# Play/Pause
+shift + F11
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+# Prev
+shift + F10
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+# Next
+shift + F12
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+#Brightness up
+XF86MonBrightnessUp
+		xbacklight -inc 10
+#Brightness down
+XF86MonBrightnessDown
+		xbacklight -dec 10
+#Scripts----------------------------------------------------------------
+# Menu de capturas
+Print {_,shift + } 
+		{maim -m 1 captura-pantalla-"$(date '+%y%m%d-%H%M-%S').png",$HOME/.config/bspwm/scripts/menucaptura}
+# Menu de grabacion de video
+super + Print
+		$HOME/.config/bspwm/scripts/menugrabacion
+# Monitor
+super + shift + m
+		$HOME/.config/bspwm/scripts/monitor
+
+#Atajos y Utilidades----------------------------------------------------
+# Calendario/Clima/Calculadora/Bluetooth/Redshift
+alt + {F1,F2,F3,F4,F5}
+		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,Blueman-manager,redshift}
+
+
+		

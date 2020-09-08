@@ -1,0 +1,7 @@
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=20
+PANEL_WM_NAME=bspwm_panel
+PANEL_FONT_FAMILY="Font Awesome:Medium:size=9"
+ICON_FONT="Font Awesome:size=10"
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
+

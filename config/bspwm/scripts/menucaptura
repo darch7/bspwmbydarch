@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case "$(printf "Selecione el area\\nVentana activa\\nSelecionar area (copiar)\\nVentana activa (copiar)\\nToda la pantalla (copiar)" | dmenu -l 6 -i -p "Selecione el tipo de captura:")" in
+	"Selecione el area") maim -m 1 -s area-seleccionada-"$(date '+%y%m%d-%H%M-%S').png" ;;
+	"Ventana activa") maim -m 1 -i "$(xdotool getactivewindow)" ventana-activa-"$(date '+%y%m%d-%H%M-%S').png" ;;	
+	"Selecionar area (copiar)") maim -m 1 -s | xclip -selection clipboard -t image/png ;;
+	"Ventana activa (copiar)") maim -m 1 -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
+	"Toda la pantalla (copiar)") maim -m 1 | xclip -selection clipboard -t image/png ;;
+esac
