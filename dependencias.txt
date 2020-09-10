@@ -1,10 +1,8 @@
-yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-
-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting --noconfirm
+yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting --noconfirm
 
 ------------------------------------------------------------------------
 
-sudo pacman -S lxrandr neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk
-dmenu blueman nitrogen pavucontrol geany neovim sxiv --noconfirm
+sudo pacman -S lxrandr telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv --noconfirm
 
 
 
@@ -28,3 +26,9 @@ gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87F
 
 
 yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
+
+
+--------------------------------------------------------------------------------------------------------------
+Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tipo de formato de particiones)
+----------------------------------------------------------------------------------------------------------------
+sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
