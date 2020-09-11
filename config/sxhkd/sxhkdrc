@@ -1,4 +1,16 @@
-#Atajos Basicos---------------------------------------------------------
+                                                  
+#      @@@@@@   @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@   
+#     @@@@@@@   @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@  
+#     !@@       @@!  !@@  @@!  @@@  @@!  !@@  @@!  @@@  
+#     !@!       !@!  @!!  !@!  @!@  !@!  @!!  !@!  @!@  
+#     !!@@!!     !@@!@!   @!@!@!@!  @!@@!@!   @!@  !@!  
+#      !!@!!!     @!!!    !!!@!!!!  !!@!!!    !@!  !!!  
+#          !:!   !: :!!   !!:  !!!  !!: :!!   !!:  !!!  
+#         !:!   :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  
+#     :::: ::    ::  :::  ::   :::   ::  :::   :::: ::  
+#     :: : :     :   ::    :   : :   :   :::  :: :  :  
+
+#_______________________Atajos Basicos__________________________________
 # terminal/launch menu
 super + {Return,d}
 		{st,dmenu_run}
@@ -13,10 +25,10 @@ super + q
 # set the node flags
 super + ctrl + {m,x,y,z}
 		bspc node -g {marked,locked,sticky,private}
-#Apps-------------------------------------------------------------------
+#_________________________Apps__________________________________________
 super + {e,w,v,b,n,m,l,t,a,h,k}
 		{pcmanfm,google-chrome-stable,pavucontrol,transmission-gtk,nitrogen,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U,leafpad,telegram-desktop,st -e nmtui,st -e htop,virt-manager}
-#Manejos de ventanas----------------------------------------------------
+#____________________Manejos de ventanas_________________________________
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}
 		{bspc node @focused:/ -R 90,bspc node focused -t \~floating,bspc node -g sticky}
@@ -40,7 +52,7 @@ super + {grave,Tab}
 # Enviar ventanas a otra area de trabajo
 super + {_,shift + }{1-9,0}
 		bspc {desktop -f,node -d} '^{1-9,10}'
-#preselect--------------------------------------------------------------
+#_________________________preselect____________________________________
 # Preseleccion para lanzar ventanas
 super + p
 		bspc node -p "~"{west,north,east,south}
@@ -52,7 +64,7 @@ super + shift + p
 # preselect the ratio
 super + ctrl + {1-9}
 		bspc node -o 0.{1-9}
-#move/resize------------------------------------------------------------
+#________________________move/resize____________________________________
 # mover ventana flotante
 super + alt + {Left,Down,Up,Right}
 		bspc node -v {-20 0,0 20,0 -20,20 0}
@@ -68,7 +80,7 @@ ctrl + shift + {Left,Down,Up,Right}
 # resize gaps de ventanas
 super { ,+ shift }+ z
 		bspc config window_gap $(($(bspc config window_gap) {+,-} 3))
-#Multimedia-------------------------------------------------------------
+#_______________________Multimedia______________________________________
 #Raises Volume
 XF86AudioRaiseVolume
 		amixer set Master 5%+		
@@ -93,7 +105,7 @@ XF86MonBrightnessUp
 #Brightness down
 XF86MonBrightnessDown
 		xbacklight -dec 10
-#Scripts----------------------------------------------------------------
+#__________________________Scripts______________________________________
 # Menu de capturas
 Print {_,shift + } 
 		{maim -m 1 captura-pantalla-"$(date '+%y%m%d-%H%M-%S').png",$HOME/.config/bspwm/scripts/menucaptura}
@@ -103,7 +115,7 @@ super + Print
 # Monitor
 super + shift + m
 		lxrandr
-#Atajos y Utilidades----------------------------------------------------
+#__________________________Utilidades___________________________________
 # Calendario/Clima/Calculadora/Bluetooth/Redshift
 alt + {F1,F2,F3,F4,F5}
 		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,Blueman-manager,redshift}
