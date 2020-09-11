@@ -31,3 +31,8 @@ luego darle permisos
 
 sudo chmod +7777 ~/.config/bspwm/scripts
 sudo chmod u+x ~/.config/bspwm/scripts
+
+----------------------------------------------------------------
+
+Modificar ciudad para el clima .... esta en bspwmrc debes modificarlo por el nombre de tu ciudad si quieres que te de el correcto
+a tu ubicacion

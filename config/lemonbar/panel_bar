@@ -1,13 +1,23 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-# LEMONBAR BY MXHECTORVEGA - PRINCIPIADA CON ARCHIVOS EXAMPLES
+#     @@@@@@@    @@@@@@   @@@  @@@  @@@@@@@@  @@@
+#     @@@@@@@@  @@@@@@@@  @@@@ @@@  @@@@@@@@  @@@
+#     @@!  @@@  @@!  @@@  @@!@!@@@  @@!       @@!
+#     !@!  @!@  !@!  @!@  !@!!@!@!  !@!       !@!
+#     @!@@!@!   @!@!@!@!  @!@ !!@!  @!!!:!    @!!
+#     !!@!!!    !!!@!!!!  !@!  !!!  !!!!!:    !!!
+#     !!:       !!:  !!!  !!:  !!!  !!:       !!:
+#     :!:       :!:  !:!  :!:  !:!  :!:        :!:
+#      ::       ::   :::   ::   ::   :: ::::   :: ::::
+#      :         :   : :  ::    :   : :: ::   : :: : :
 
-. $HOME/.config/lemonbar/panel_colors
+
+. panel_colors
 
 num_mon=$(bspc query -M | wc -l)
-
 while read -r line ; do
-	case $line in	
+	case $line in
+
 		T*)
 			# TUTILO DE VENTANA
 			titulo="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
@@ -16,113 +26,116 @@ while read -r line ; do
 			# RAM CPU TEMP VOL SSID SIGNAL
 			reloj=$(date | awk '{print $1" "$2" "$3"," " "$5}')
 			vol=$(volume | awk '{print $2"%"}')
+			bat2=$(acpi | awk '{print $4}')
 			bat=$(battery | awk '{print $2"%"}')
+			temp_cpu=$(temp | awk '{print $1-0}')
 			cpu=$(top -bn1 | grep "Cpu" | awk 'NR==1 {print $2}')
 			ssid=$(nmcli -t -f name connection show --active)
 			ram=$(free | grep Mem | awk '{printf("%.f%\n",$3/$2 * 100.0)}')
 			mem=$(free -m | grep Mem | awk '{print $3}')
-			signal=$(cat /proc/net/wireless | awk 'NR==3 {printf "%0.0f%%\n", $3/70*100}')
-			clima=$(printf "%s" "$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')"
-			sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "  " $1"°"," "$2"°"}')
-			systray="%{B$COLOR_SYS_BG}%{F$COLOR_CLIMA_FG}$clima | %{F$COLOR_RAM_FG} ${mem}M(${ram}) | %{F$COLOR_CPU_FG} ${cpu}% | %{F$COLOR_TMP_FG} ${line#?}° | %{F$COLOR_VOL_FG} ${vol} | %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${reloj}  | %{F$COLOR_BAT_FG} ${bat} | %{F$COLOR_RED_FG}%{B$COLOR_SYS_BG} ${ssid} ${signal} %{B-}%{F-}"
-			;;	
+			wifi=$(cat /proc/net/wireless | awk 'NR==3 {printf "%0.0f%%\n", $3/70*100}')
+			lluvia=$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')
+			temp_baja=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $1"°"}')
+			temp_alta=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $2"°"}')
+			systray="%{B$COLOR_SYS_BG}%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta} | %{F$COLOR_RAM_FG} ${mem}M(${ram}) | %{F$COLOR_CPU_FG} ${cpu}% | %{F$COLOR_TMP_FG} ${temp_cpu}° | %{F$COLOR_VOL_FG} ${vol} | %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${reloj}  | %{F$COLOR_BAT_FG} ${bat} | %{F$COLOR_RED_FG}%{B$COLOR_SYS_BG} ${ssid} ${wifi} %{B-}%{F-}"
+			;;
 		W*)
-			# ESCRITORIOS
-			wm=
+			# bspwm internal state
+			escritorios=
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
-				item=$1
-				name=${item#?}
-				case $item in
-					[mM]*)
-						case $item in
-							m*)
-								# ESCRITORIO OCUPADO NO SELECCIONADO
-								FG=$COLOR_MONITOR_FG
-								BG=$COLOR_MONITOR_BG
-								on_focused_monitor=
-								;;
-							M*)
-								# ESCRITORIO ACTIVO
-								FG=$COLOR_FOCUSED_MONITOR_FG
-								BG=$COLOR_FOCUSED_MONITOR_BG
-								on_focused_monitor=1
-								;;
+			item=$1
+			name=${item#?}
+			case $item in
+				[mM]*)
+					case $item in
+						m*)
+							# ESCRITORIO OCUPADO NO SELECCIONADO
+							FG=$COLOR_MONITOR_FG
+							BG=$COLOR_MONITOR_BG
+							on_focused_monitor=
+							;;
+						M*)
+							# ESCRITORIO ACTIVO
+							FG=$COLOR_FOCUSED_MONITOR_FG
+							BG=$COLOR_FOCUSED_MONITOR_BG
+							on_focused_monitor=1
+							;;
+							esac
+							[ $num_mon -lt 2 ] && shift && continue
+							escritorios="${escritorios}%{F${FG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{F-}"
+							;;
+							[fFoOuU]*)
+							case $item in
+						f*)
+							# ESCRITORIO VACIO SELECIONADO
+							FG=$COLOR_DEFAULT_FG
+							BG=$COLOR_FREE_BG
+							UL=$BG
+							;;
+						F*)
+							if [ "$on_focused_monitor" ] ; then
+							# ESCRITORIO VACIO SELECIONADO
+							FG=$COLOR_FOCUSED_FREE_FG
+							BG=$COLOR_FOCUSED_FREE_BG
+							UL=$BG
+							else
+							# ESCRITORIO VACIO SELECIONADO
+							FG=$COLOR_FREE_FG
+							BG=$COLOR_FREE_BG
+							UL=$COLOR_FOCUSED_FREE_BG
+							fi
+							;;
+						o*)
+							# ESCRITORIO OCUPADO SELECCIONADO
+							FG=$COLOR_OCCUPIED_FG
+							BG=$COLOR_OCCUPIED_BG
+							UL=$BG
+							;;
+						O*)
+							if [ "$on_focused_monitor" ] ; then
+							# ESCRITORIO OCUPADO SELECIONADO
+							FG=$COLOR_FOCUSED_OCCUPIED_FG
+							BG=$COLOR_FOCUSED_OCCUPIED_BG
+							UL=$BG
+							else
+							# ESCRITORIO OCUPADO SELECIONADO
+							FG=$COLOR_OCCUPIED_FG
+							BG=$COLOR_OCCUPIED_BG
+							UL=$COLOR_FOCUSED_OCCUPIED_BG
+							fi
+							;;
+						u*)
+							# ESCRITORIO PARPADEANTE URGENTE
+							FG=$COLOR_URGENT_FG
+							BG=$COLOR_URGENT_BG
+							UL=$BG
+							;;
+						U*)
+							if [ "$on_focused_monitor" ] ; then
+							# ESCRITORIO PARPADEANTE URGENTE
+							FG=$COLOR_FOCUSED_URGENT_FG
+							BG=$COLOR_FOCUSED_URGENT_BG
+							UL=$BG
+							else
+							# ESCRITORIO PARPADEANTE URGENTE
+							FG=$COLOR_URGENT_FG
+							BG=$COLOR_URGENT_BG
+							UL=$COLOR_FOCUSED_URGENT_BG
+							fi
+							;;
 						esac
-						[ $num_mon -lt 2 ] && shift && continue
-						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
-						;;
-					[fFoOuU]*)
-						case $item in
-							f*)
-								# ESCRITORIO VACIO SELECIONADO
-								FG=$COLOR_DEFAULT_FG
-								BG=$COLOR_FREE_BG
-								UL=$BG
-								;;
-							F*)
-								if [ "$on_focused_monitor" ] ; then
-									# ESCRITORIO VACIO SELECIONADO
-									FG=$COLOR_FOCUSED_FREE_FG
-									BG=$COLOR_FOCUSED_FREE_BG
-									UL=$BG
-								else
-									# ESCRITORIO VACIO SELECIONADO
-									FG=$COLOR_FREE_FG
-									BG=$COLOR_FREE_BG
-									UL=$COLOR_FOCUSED_FREE_BG
-								fi
-								;;
-							o*)
-								# ESCRITORIO OCUPADO SELECCIONADO
-								FG=$COLOR_OCCUPIED_FG
-								BG=$COLOR_OCCUPIED_BG
-								UL=$BG
-								;;
-							O*)
-								if [ "$on_focused_monitor" ] ; then
-									# ESCRITORIO OCUPADO SELECIONADO
-									FG=$COLOR_FOCUSED_OCCUPIED_FG
-									BG=$COLOR_FOCUSED_OCCUPIED_BG
-									UL=$BG
-								else
-									# ESCRITORIO OCUPADO SELECIONADO
-									FG=$COLOR_OCCUPIED_FG
-									BG=$COLOR_OCCUPIED_BG
-									UL=$COLOR_FOCUSED_OCCUPIED_BG
-								fi
-								;;
-							u*)
-								# ESCRITORIO PARPADEANTE URGENTE
-								FG=$COLOR_URGENT_FG
-								BG=$COLOR_URGENT_BG
-								UL=$BG
-								;;
-							U*)
-								if [ "$on_focused_monitor" ] ; then
-									# ESCRITORIO PARPADEANTE URGENTE
-									FG=$COLOR_FOCUSED_URGENT_FG
-									BG=$COLOR_FOCUSED_URGENT_BG
-									UL=$BG
-								else
-									# ESCRITORIO PARPADEANTE URGENTE
-									FG=$COLOR_URGENT_FG
-									BG=$COLOR_URGENT_BG
-									UL=$COLOR_FOCUSED_URGENT_BG
-								fi
-								;;
-						esac
-						wm="${wm}%{F${FG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{F-}%{-u}"
+						escritorios="${escritorios}%{F${FG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{F-}%{-u}"
 						;;
 					[LTG]*)
 						# LAYOUT MODO DE VENTANAS EN UNA LETRA O DOS
-						wm="${wm}%{F$COLOR_STATE_FG}%{F-}"
+						escritorios="${escritorios}%{F$COLOR_STATE_FG}%{F-}"
 						;;
 				esac
 				shift
 			done
 			;;
 	esac
-	 printf "%s\n" "%{l}  ${wm}${titulo}%{r}${systray}"
+	printf "%s\n" "%{l}   ${boton_menu} ${escritorios}${titulo}%{c}${boton_calendario}${fecha}${hora}%{r}${systray}"
 done
