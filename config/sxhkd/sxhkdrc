@@ -16,7 +16,7 @@ super + {Return,d}
 		{st,dmenu_run}
 
 # actualizar sxhkdrc-Bspwmrc/cerrar sesion/bloquear pantalla/apagar/reiniciar
-shift + {a,s,c,b,p,r}
+shift + {a,s,q,b,p,r}
 		{bspc wm -r;dunstify -i ~/.config/bspwm/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.config/bspwm/scripts/arch.png SXHKDRC RECARGADO,killall panel;bspc quit,slock,poweroff,reboot}
 # Cerrar apps
 super + q
