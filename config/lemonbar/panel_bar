@@ -138,5 +138,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}  ${escritorios}${titulo}%{c}${fecha}${hora}%{r}${systray}"
+	printf "%s\n" "%{l}  ${escritorios}${titulo}%{r}${systray}"
 done
