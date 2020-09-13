@@ -1,3 +1,13 @@
+                  ██      ██          ██
+                 ░██     ░██         ░██
+   ██████ ██   ██░██     ░██  ██     ░██
+  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+ ░░█████  ░░███  ░██░░░██░████   ██░░░██
+  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+  ██████  ██ ░░██░██  ░██░██░░██░░██████
+ ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░
+
+
 ----------Atajos bspwm by darch -----------------
 --------------------------------------------------
 super + t = Terminal
@@ -6,9 +16,9 @@ super + d = dmenu
 
 shfit + s = recargar sxhkdrc
 
-shift + a = recargar bspwm 
+shift + a = recargar bspwm
 
-shift + c = cerrar sesion 
+shift + q = cerrar sesion
 
 shift + p = apagar
 
@@ -30,7 +40,7 @@ super + n = nitrogen
 
 super + m = spotify
 
-super + l = leafpad 
+super + l = leafpad
 
 super + t = telegram
 
@@ -38,7 +48,7 @@ super + a = menu wifi/ethernet
 
 super + h = htop
 
-super + k = qemu (the best Virtual-Manager) 
+super + k = qemu (the best Virtual-Manager)
 ----------------------------------------------
 ventanas
 ----------------------------------------------
@@ -48,13 +58,13 @@ super + s = ventana flotante/volver a colocarlo tailing
 
 super + i = fijar ventana
 
-super + flechas direccionales = mover el cursor entre ventanas
+super + flechas (arriba,abajo,derecha izquierda) = mover el cursor entre ventanas
 
-super + shift + Flechas direccionales mover procesos de una ventana a otra
+super + shift + flechas (arriba,abajo,derecha,izquierda) = mover procesos de una ventana a otra
 
 super + f = fullsize
 
-super + tab = volver al escritorio anterior 
+super + tab = volver al escritorio anterior
 
 super + shift + [1-9] = mandar ventanas a otros escritorios.
 
@@ -64,31 +74,31 @@ super + shift + p = cancelar preseleccion
 
 super + ctrl + [1-9] = elegir tamaño de area de seleccion
 
-super + alt + flechas direccionales = mover ventana flotante
+super + alt + flechas (arriba,abajo,derecha,izquierda) = mover ventana flotante
 
-ctrl + flechas direccionales = expander una ventana en tailing/ floating
+ctrl + flechas (arriba,abajo,derecha,izquierda) = expander una ventana en tailing/ floating
 
-ctrl + shift + flechas direccionales = contraer ventanas tailing/floating
+ctrl + shift + flechas (arriba,abajo,derecha,izquierda) = contraer ventanas tailing/floating
 
-super + z / super + shift + z = rezisear gaps 
+super + z / super + shift + z = rezisear gaps
 
 ------------------------------------------------------
-shif + F11 = pausa/play spotify 
+shif + F11 = pausa/play spotify
 
 shift + F10 = prev track spotify
 
-shift + F12 =  next track spotify 
+shift + F12 =  next track spotify
 
 ----------------------------------------------------------------
 multimedia
 ----------------------------------------------------------------
-print = screenshot 
+print = screenshot
 
 shift + print = menu captura
 
 super + print = menu grabacion pantalla con y sin sonido /podcast/webcam
 
-super + shfit + m = menu de monitor 
+super + shfit + m = menu de monitor (lxrandr)
 -------------------------------------------------------------
 utilidades
 -------------------------------------------------------------------
@@ -98,12 +108,10 @@ alt + F2 = clima
 
 alt + F3 = calculadora
 
-alt + F4 = bluetooth menu
-
-alt + F5 redshift 
+alt + F5 redshift
 -----------------------------------------------------------------------
 st
 -----------------------------------------------------------------
-alt + j,k = subir o bajar en terminal st 
+alt + j,k = subir o bajar en terminal st
 
 alt + c,v = copiar pegar en terminal st
