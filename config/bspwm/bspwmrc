@@ -31,7 +31,9 @@ xsetroot -cursor_name left_ptr &
 #_______________CONFIGURACION DE 1 Y 2 MONITORES________________________
 
 bspc monitor -d  一  二  三  四  五  六  七  八  九 
+#bspc monitor -d One Two Three Four Five Six Seven Eight Nine 
 #bspc monitor -d I II III IV V VI VII VIII IX X
+#bspc monitor -d • • • • • • • • • •
 #bspc monitor -d 0000 0001 0010 0011 0100 0101 0111 1000 1100
 #bspc monitor -d 1 2 3 4 5 6 7 8 9
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
