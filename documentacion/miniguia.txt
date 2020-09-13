@@ -1,4 +1,12 @@
+#####################################################################################
+#                                                                                   #
+#                      ALT + F12 (PDF de atajos de bspwm)                           #
+#####################################################################################
+
+
+
 1- entrar en la carpeta compilar.
+
 compilar las dos st y dmenu
 
 cd dmenu
@@ -8,18 +16,20 @@ cd st
 sudo make clean install
 
 ----------------------------------------------------
+
 2- entrar a la carpeta config
  y copiar en TU .config estas carpetas
 
- dunst, lemonbar, nvim, picom, redshift
+ dunst, lemonbar, nvim, picom, redshift,sxhkdrc
 
 ----------------------------------------------------
 
+
 3- entrar la carpeta bspwm que descargaste y copiar el contenido de el bspwmrc en TU bspwmrc que se encuentra en .config/bspwm/bspwmrc
 
-lo mismo con sxhkdrc que se encuentra en TU .config/sxhkd/sxhkdrc
 
 -------------------------------------------------------
+
 
 4- copiar los scripts que estan en la carpeta donde descargaste.
 dentro de la carpeta bspwm/scripts
@@ -32,7 +42,12 @@ luego darle permisos
 sudo chmod +7777 ~/.config/bspwm/scripts
 sudo chmod u+x ~/.config/bspwm/scripts
 
+
 ----------------------------------------------------------------
 
 Modificar ciudad para el clima .... esta en bspwmrc debes modificarlo por el nombre de tu ciudad si quieres que te de el correcto
 a tu ubicacion
+
+------------------------------------------------------------------
+
+

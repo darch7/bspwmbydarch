@@ -1,14 +1,12 @@
-                                                  
-#      @@@@@@   @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@   
-#     @@@@@@@   @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@  
-#     !@@       @@!  !@@  @@!  @@@  @@!  !@@  @@!  @@@  
-#     !@!       !@!  @!!  !@!  @!@  !@!  @!!  !@!  @!@  
-#     !!@@!!     !@@!@!   @!@!@!@!  @!@@!@!   @!@  !@!  
-#      !!@!!!     @!!!    !!!@!!!!  !!@!!!    !@!  !!!  
-#          !:!   !: :!!   !!:  !!!  !!: :!!   !!:  !!!  
-#         !:!   :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  
-#     :::: ::    ::  :::  ::   :::   ::  :::   :::: ::  
-#     :: : :     :   ::    :   : :   :   :::  :: :  :  
+#                  ██      ██          ██
+#                 ░██     ░██         ░██
+#   ██████ ██   ██░██     ░██  ██     ░██
+#  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+# ░░█████  ░░███  ░██░░░██░████   ██░░░██
+#  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+#  ██████  ██ ░░██░██  ░██░██░░██░░██████
+# ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░
+
 
 #_______________________Atajos Basicos__________________________________
 # terminal/launch menu
@@ -116,9 +114,9 @@ super + Print
 super + shift + m
 		lxrandr
 #__________________________Utilidades___________________________________
-# Calendario/Clima/Calculadora/Bluetooth/Redshift
-alt + {F1,F2,F3,F4}
-		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,redshift}
+# Calendario/Clima/Calculadora/Redshift/*****PDF DE ATAJOS*********
+alt + {F1,F2,F3,F4,F12}
+		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,redshift,zathura $HOME/.config/sxhkd/atajos/atajos.pdf}
 
 
 		
