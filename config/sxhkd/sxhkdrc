@@ -79,12 +79,9 @@ ctrl + shift + {Left,Down,Up,Right}
 super { ,+ shift }+ z
 		bspc config window_gap $(($(bspc config window_gap) {+,-} 3))
 #_______________________Multimedia______________________________________
-#Raises Volume
-XF86AudioRaiseVolume
-		amixer set Master 5%+		
-#Lowers volume
-XF86AudioLowerVolume
-		amixer set Master 5%-
+# Subir,Bajar Volumen
+XF86Audio{Raise,Lower}Volume
+		amixer sset Master 5%{+,-}
 #Mute
 XF86AudioMute
 		amixer -D pulse set Master 1+ toggle
