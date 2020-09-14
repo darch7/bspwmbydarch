@@ -52,6 +52,6 @@ bspc config focus_follows_pointer true
 
 #_____________REGLAS DE COMPORTAMIENTO DE VENTANAS/AREAS DE TRABAJO____________
 
-bspc rule -a mpv state=floating
-bspc rule -a blueberry state=floating center=true
-bspc rule -a Zathura state=tiled
+bspc rule -a Blueberry.py state=floating center=true
+bspc rule -a Zathura state=floating center=true
+bspc rule -a Pavucontrol state=floating center=true
