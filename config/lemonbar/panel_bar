@@ -38,7 +38,7 @@ while read -r line ; do
 			lluvia=$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')
 			temp_baja=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $1"°"}')
 			temp_alta=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $2"°"}')
-			systray="%{B$COLOR_SYS_BG}%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta} | %{F$COLOR_RAM_FG} ${mem}M(${ram}) | %{F$COLOR_CPU_FG} ${cpu}% | %{F$COLOR_TMP_FG} ${temp_cpu}° | %{F$COLOR_VOL_FG} ${vol} | %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  | %{F$COLOR_BAT_FG} ${bat} | %{F$COLOR_RED_FG}%{B$COLOR_SYS_BG} ${wifi}   ${ssid} %{B-}%{F-}"
+			systray="%{B$COLOR_SYS_BG}%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta} | %{F$COLOR_RAM_FG} ${mem}M(${ram}) | %{F$COLOR_CPU_FG} ${cpu}% | %{F$COLOR_TMP_FG} ${temp_cpu}° | %{F$COLOR_VOL_FG} ${vol} | %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  | %{F$COLOR_BAT_FG} ${bat} | %{F$COLOR_RED_FG}%{B$COLOR_SYS_BG} ${wifi}   ${ssid} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm internal state
