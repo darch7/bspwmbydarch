@@ -10,7 +10,7 @@
 # ░░░░░   ░░░░░░  ░░      ░░░    ░░░ ░░░  ░░  ░░
 
 
-#____________________ARRANQUE DEL SISETMA_____________________
+#____________________ARRANQUE DEL SISTEMA_____________________
 
 export PATH="${PATH}:$HOME/.config/lemonbar"
 export PATH="${PATH}:$HOME/.config/bspwm/scripts"
