@@ -7,6 +7,7 @@ sudo pacman -S lxrandr redshift polkit-gnome telegram-desktop neofetch calcurse 
 
 
 
+para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
 ---------------------------------------------------------------
 LEMONBAR DEPENDENCIAS
 --------------------------------------------------------------
