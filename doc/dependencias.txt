@@ -1,4 +1,4 @@
-yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting --noconfirm
+yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting --noconfirm
 
 ------------------------------------------------------------------------
 
