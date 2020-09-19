@@ -26,6 +26,6 @@ ir a .config/nvim y abrir init.vim con nvim para cargar los plugins (Tenes que t
 :x = cortar
 :w = guardar
 :u = cambios atrás
-Ctrl + i = ver ocultos
+Shift + i = ver ocultos
 :q = salir
 :wq! = guardar con privilegios sudo
