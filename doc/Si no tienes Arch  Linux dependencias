@@ -1,0 +1,42 @@
+Si no tienes Arch Linux deberas instalar las dependencias las cosas por separado. 
+
+lemonbar:
+-----------------------------------------------------------------
+abrir terminal: 
+
+cd
+mkdir lemon
+cd lemon 
+
+git clone https://github.com/krypt-n/bar
+git clone https://github.com/baskerville/xdo.git
+git clone https://github.com/baskerville/sutils.git
+git clone https://github.com/baskerville/xtitle.git
+
+
+make
+sudo make install
+
+a los 4 repos clonados uno por uno.
+
+fonts para la barra: 
+
+awesome-terminal-fonts, ttf-font-awesome, adobe-source-han-sans-jp-fonts,  adobe-source-han-serif-jp-fonts
+
+-----------------------------------------------------------------
+para que te funcionen los scripts debes tener instalado lo siguientes paquetes: 
+
+ffmpeg maim xclip xdotool mpv 
+
+----------------------------------------------------------------
+Picom para bordes redondeados: 
+
+git clone https://github.com/ibhagwan/picom.git
+
+guia de instalacion en el mismo github.
+
+---------------------------------------------------------------
+
+todo lo demas es opcional si quieres puedes usar mis mismas aplicaciones ya instalandolas una a una o la que mas te convenga. Checa el pdf de atajos para ver todas los atajos ocupados y a borralas para poner nuevas o has un nuevo mapeo a gusto.
+
+Buena suerte!
