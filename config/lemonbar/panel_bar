@@ -11,35 +11,79 @@
 #      ::       ::   :::   ::   ::   :: ::::   :: ::::
 #      :         :   : :  ::    :   : :: ::   : :: : :
 
-
 . panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 while read -r line ; do
 	case $line in
-
+			 VS*)
+					# ICONO DE VOLUMEN
+					if [ ${line#??} == "on" ]
+					then
+					volume_state=`echo -e ""`
+					else
+					volume_state=`echo -e ""`
+					fi
+					;;
+			VI*)
+					# PORCENTAJE DE VOLUMEN
+					volume="%{T1}${line#??}"
+					;;
+			BS*)
+					# ESTADO DE BATERIA
+					if [ ${line#??} == "Charging" ]
+					then
+					batt_state=`echo -e ""`
+					elif [ ${line#??} == "Full" ]
+					then
+					batt_state=`echo -e ""`
+					else
+					batt_state=""
+					fi
+					;;
+			BI*)
+					# CARGA DE BATERIA
+					charge="${line#??}"
+					if [ $charge -lt "12" ]
+					then
+					batt=`echo -e ""`
+					elif [ $charge -lt "37" ]
+					then
+					batt=`echo -e ""`
+					elif [ $charge -lt "62" ]
+					then
+					batt=`echo -e ""`
+					elif [ $charge -lt "87" ]
+					then
+					batt=`echo -e ""`
+					else
+					batt=`echo -e ""`
+					fi
+					charge=`echo -e "$charge"`
+					;;
+	
 		T*)
 			# TUTILO DE VENTANA
-			titulo="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+			titulo="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"	
 			;;
-		C*)
-			# RAM CPU TEMP VOL SSID SIGNAL
+ 		X*)
+			# BANDEJA DEL SISTEMA
 			fecha=$(date | awk '{print $1","" "$2" "$3}')
 			horas=$(clock | awk '{print $2}')
-			vol=$(volume | awk '{print $2"%"}')
-			bat2=$(acpi | awk '{print $4}')
-			bat=$(battery | awk '{print $2"%"}')
 			temp_cpu=$(temp | awk '{print $1-0}')
+			kernel=$(uname -a | awk '{ print $1" "$3" "$8 }')
+			vol=$(volume | awk '{print $2"%"}')			
 			cpu=$(top -bn1 | grep "Cpu" | awk 'NR==1 {print $2}')
-			ssid=$(nmcli -t -f name connection show --active)
+			ssid=$(iwgetid -r)
 			ram=$(free | grep Mem | awk '{printf("%.f%\n",$3/$2 * 100.0)}')
-			mem=$(free -m | grep Mem | awk '{print $3}')
+			mem=$(free -h --kilo | awk 'NR==2 { print $3}')
 			wifi=$(cat /proc/net/wireless | awk 'NR==3 {printf "%0.0f%%\n", $3/70*100}')
 			lluvia=$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')
 			temp_baja=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $1"°"}')
 			temp_alta=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $2"°"}')
-			systray="%{B$COLOR_SYS_BG}%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta} | %{F$COLOR_RAM_FG} ${mem}M(${ram}) | %{F$COLOR_CPU_FG} ${cpu}% | %{F$COLOR_TMP_FG} ${temp_cpu}° | %{F$COLOR_VOL_FG} ${vol} | %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  | %{F$COLOR_BAT_FG} ${bat} | %{F$COLOR_RED_FG}%{B$COLOR_SYS_BG} ${wifi}   ${ssid} %{B-}%{F-}"
+			systray="%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta}  |  %{F$COLOR_RAM_FG} ${mem}(${ram})  |  %{F$COLOR_CPU_FG} ${cpu}%  |  %{F$COLOR_TMP_FG} ${temp_cpu}°  | %{F$COLOR_VOL_FG}${volume_state} ${volume}%  |  %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  |  %{F$COLOR_BAT_FG} ${batt_state} ${batt} %{F$COLOR_BAT_PORCENTAJE}${charge}%  |  %{F$COLOR_RED_FG}  ${wifi}    ${ssid}"
 			;;
+	
 		W*)
 			# bspwm internal state
 			escritorios=

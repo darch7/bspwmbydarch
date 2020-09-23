@@ -16,8 +16,8 @@ PANEL_FIFO=/tmp/panel-fifo
 PANEL_WM_NAME=bspwm_panel
 FUENTE_BAR="Source Han Sans JP:Bold:size=10"
 FUENTE_ICONOS="Font Awesome 5 Free:style=Solid:size=11"
-#FUENTE_ICONOS2="Font Awesome:style=Solid:size=9"
-#FUENTE_ICONOS3="JoyPixels:style=Regular:size=9"
+FUENTE_ICONOS2="Font Awesome:style=Solid:size=11"
+FUENTE_ICONOS3="JoyPixels:style=Regular:size=9"
 #BAR_POSICION="1200x25+80+5"
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
@@ -50,32 +50,11 @@ xtitle -sf 'T%s\n' -t30 > "$PANEL_FIFO" &
 #TEMPERATURA
 temp -sf'X%.1f' -n0 > "$PANEL_FIFO" &
 
-#BOTON REPORTE CLIMA
-echo -e 'V\uf043' > $PANEL_FIFO &
-
-#BOTON MENU DMENU
-echo -e 'L\uf00a' > $PANEL_FIFO &
-
-#BOTON POWER
-echo -e 'P' > $PANEL_FIFO &
-
-#BOTON VOLUMEN
-echo -e 'H\uf028' > $PANEL_FIFO &
-
-#BOTON WIFI
-echo -e 'Q\uf1eb' > $PANEL_FIFO &
-
-#BOTON CALENDARIO
-echo -e 'A\uf073' > $PANEL_FIFO &
-
-#BOTON SUSPENDER
-echo -e 'E\uf186' > $PANEL_FIFO &
-
-#BOTON BLUETOOTH
-echo -e 'Z\uf293' > $PANEL_FIFO &
-
-#BOTON BLOQUEAR CON SLOK
-echo -e 'K\uf023' > $PANEL_FIFO &
+#VOLUMEN Y BATERIA
+volume -sf 'VS%s' > "$PANEL_FIFO" &
+volume -sf 'VI%i' > "$PANEL_FIFO" &
+battery -sf 'BS%s' > "$PANEL_FIFO" &
+battery -sf 'BI%i' > "$PANEL_FIFO" &
 
 . panel_colors
 
@@ -86,4 +65,3 @@ wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
 wait
-

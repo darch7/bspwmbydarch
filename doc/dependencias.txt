@@ -3,7 +3,7 @@ yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu n
 ------------------------------------------------------------------------
 
 
-sudo pacman -S lxrandr redshift polkit-gnome telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv blueberry --noconfirm
+sudo pacman -S lxrandr wireless_tools redshift polkit-gnome telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv blueberry --noconfirm
 
 
 
