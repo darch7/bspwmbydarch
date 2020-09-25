@@ -23,7 +23,7 @@ panel &
 dunst &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 eval $(gnome-keyring-daemon -s -- components=pkcs11,secrets,ssh,gpg) &
-curl -sf "wttr.in/florencio+varela?lang=es" > "$HOME/.config/weatherreport" &
+curl -sf "wttr.in/$LOCATION?lang=es" > "$HOME/.config/weatherreport" &
 unclutter &
 xsetroot -cursor_name left_ptr &
 

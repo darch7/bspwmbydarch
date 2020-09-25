@@ -12,10 +12,10 @@
 # terminal/launch menu
 super + {Return,d}
 		{st,dmenu_run}
-
-# actualizar sxhkdrc-Bspwmrc/cerrar sesion/bloquear pantalla/apagar/reiniciar
-shift + {a,s,q,b,p,r}
-		{bspc wm -r;dunstify -i ~/.config/bspwm/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.config/bspwm/scripts/arch.png SXHKDRC RECARGADO,killall panel;bspc quit,slock,poweroff,reboot}
+		
+# Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
+super + BackSpace
+		$HOME/.config/bspwm/scripts/menuapagado
 # Cerrar apps
 super + q
 		bspc node -{c,k}
@@ -23,9 +23,43 @@ super + q
 # set the node flags
 super + ctrl + {m,x,y,z}
 		bspc node -g {marked,locked,sticky,private}
+# Recargar por defecto
+super + alt {r,e}
+			{bspc wm -r;dunstify -i ~/.config/bspwm/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.config/bspwm/scripts/arch.png SXHKDRC RECARGADO}
 #_________________________Apps__________________________________________
-super + {e,w,v,b,n,m,l,t,a,h,k}
-		{pcmanfm,google-chrome-stable,pavucontrol,transmission-gtk,nitrogen,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U,leafpad,telegram-desktop,st -e nmtui,st -e htop,virt-manager}
+# Terminal
+super + e
+		pcmanfm
+# Browser	
+super + w
+		google-chrome-stable
+# Pavucontrol 
+super + v 
+		pavucontrol
+# Torrent
+super + b
+		transmission-gtk
+# Nitrogen/walls 
+super + n
+		nitrogen
+# Spotify		
+super + m
+		env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
+# Leafpad 		
+super + l
+		leafpad
+# Telegram
+super + t
+		telegram-desktop
+# Wifi-menu/nmtui
+super + a 
+		st -e nmtui
+# Htop
+super + h
+		st -e htop
+# Qemu the best VM
+super + k
+		virt-manager
 #____________________Manejos de ventanas_________________________________
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}

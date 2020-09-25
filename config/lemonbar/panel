@@ -55,6 +55,7 @@ volume -sf 'VS%s' > "$PANEL_FIFO" &
 volume -sf 'VI%i' > "$PANEL_FIFO" &
 battery -sf 'BS%s' > "$PANEL_FIFO" &
 battery -sf 'BI%i' > "$PANEL_FIFO" &
+battery -sf 'BC%s' > "$PANEL_FIFO" &
 
 . panel_colors
 

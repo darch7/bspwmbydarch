@@ -16,55 +16,63 @@
 num_mon=$(bspc query -M | wc -l)
 while read -r line ; do
 	case $line in
-			 VS*)
-					# ICONO DE VOLUMEN
-					if [ ${line#??} == "on" ]
-					then
-					volume_state=`echo -e ""`
-					else
-					volume_state=`echo -e ""`
-					fi
-					;;
-			VI*)
-					# PORCENTAJE DE VOLUMEN
-					volume="%{T1}${line#??}"
-					;;
-			BS*)
-					# ESTADO DE BATERIA
-					if [ ${line#??} == "Charging" ]
-					then
-					batt_state=`echo -e ""`
-					elif [ ${line#??} == "Full" ]
-					then
-					batt_state=`echo -e ""`
-					else
-					batt_state=""
-					fi
-					;;
-			BI*)
-					# CARGA DE BATERIA
-					charge="${line#??}"
-					if [ $charge -lt "12" ]
-					then
-					batt=`echo -e ""`
-					elif [ $charge -lt "37" ]
-					then
-					batt=`echo -e ""`
-					elif [ $charge -lt "62" ]
-					then
-					batt=`echo -e ""`
-					elif [ $charge -lt "87" ]
-					then
-					batt=`echo -e ""`
-					else
-					batt=`echo -e ""`
-					fi
-					charge=`echo -e "$charge"`
-					;;
-	
 		T*)
 			# TUTILO DE VENTANA
 			titulo="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"	
+			;;
+		VS*)
+			# ICONO DE VOLUMEN
+			if [ ${line#??} == "on" ]
+			then
+			volume_state=`echo -e ""`
+			else
+			volume_state=`echo -e ""`
+			fi
+			;;
+		VI*)
+			# PORCENTAJE DE VOLUMEN
+			volume="%{T1}${line#??}"
+			;;
+		BI*)
+			# CARGA DE BATERIA
+			charge="${line#??}"
+			if [ $charge -lt "12" ]
+			then
+			batt=`echo -e ""`
+			elif [ $charge -lt "37" ]
+			then
+			batt=`echo -e ""`
+			elif [ $charge -lt "62" ]
+			then
+			batt=`echo -e ""`
+			elif [ $charge -lt "87" ]
+			then
+			batt=`echo -e ""`
+			else
+			batt=`echo -e ""`
+			fi
+			charge=`echo -e "$charge"`
+			;;
+		BS*)
+			# ESTADO DE BATERIA
+			if [ ${line#??} == "Charging" ]
+			then
+			batt_state=`echo -e ""`
+			elif [ ${line#??} == "Full" ]
+			then
+			batt_state=`echo -e ""`
+			else
+			batt_state=""
+			fi
+			;;
+		BC*)
+			# ESTADO DE BATERIA DAÑADA O EN MAL ESTADO
+			if [ ${line#??} == "Unknown" ]
+			then
+			bateria_mala=%{F$color2}`echo -e ""`
+			else
+			bateria_mala=""
+			fi
 			;;
  		X*)
 			# BANDEJA DEL SISTEMA
@@ -81,11 +89,11 @@ while read -r line ; do
 			lluvia=$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')
 			temp_baja=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $1"°"}')
 			temp_alta=$(sed '13q;d' "$HOME/.config/weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $2"°"}')
-			systray="%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta}  |  %{F$COLOR_RAM_FG} ${mem}(${ram})  |  %{F$COLOR_CPU_FG} ${cpu}%  |  %{F$COLOR_TMP_FG} ${temp_cpu}°  | %{F$COLOR_VOL_FG}${volume_state} ${volume}%  |  %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  |  %{F$COLOR_BAT_FG} ${batt_state} ${batt} %{F$COLOR_BAT_PORCENTAJE}${charge}%  |  %{F$COLOR_RED_FG}  ${wifi}    ${ssid}  "
+			systray="%{F$COLOR_CLIMA_FG}${lluvia}${temp_baja}${temp_alta}  |  %{F$COLOR_RAM_FG} ${mem}(${ram})  |  %{F$COLOR_CPU_FG} ${cpu}%  |  %{F$COLOR_TMP_FG} ${temp_cpu}°  | %{F$COLOR_VOL_FG}${volume_state} ${volume}%  |  %{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${fecha} /  ${horas}  |  %{F$COLOR_BAT_FG} ${ateria_mala}${batt_state} ${batt} %{F$COLOR_BAT_PORCENTAJE}${charge}%  |  %{F$COLOR_RED_FG}  ${wifi}    ${ssid}  "
 			;;
 	
 		W*)
-			# bspwm internal state
+			# BSPWM CONFIGURACION DE ESCRITORIOS
 			escritorios=
 			IFS=':'
 			set -- ${line#?}
