@@ -79,5 +79,7 @@ bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+[[ ! -f /usr/share/fzf/completion-ia.zsh ]] || source /usr/share/fzf/completion-ia.zsh
 
-
+#Fzf
+source ~/.config/zsh/somewhere/fzf-tab.plugin.zsh

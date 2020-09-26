@@ -45,9 +45,8 @@ sudo chmod u+x ~/.config/bspwm/scripts
 
 ----------------------------------------------------------------
 
-Modificar ciudad para el clima .... esta en bspwmrc debes modificarlo por el nombre de tu ciudad si quieres que te de el correcto
-a tu ubicacion
-
+copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
+se debe iniciar pcmanfm en modo root o por terminal con sudo.
 ------------------------------------------------------------------
 
 
