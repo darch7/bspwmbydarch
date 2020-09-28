@@ -7,7 +7,7 @@ shut="poweroff"
 logout="killall panel;bspc quit"
 
 cmds="\
- Bloquear                        	slock
+ Bloquear                        	i3lock-fancy
  Cerrar Sesion                   	${logout}
  Recargar BSPwm                  	${reload_bspwm}
  Recargar Sxhkd                  	${reload_sxhkd}

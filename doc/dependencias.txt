@@ -2,7 +2,7 @@
 #                                                                                   #
 #                      ALT + F12 (PDF de atajos de bspwm)                           #
 #####################################################################################
-
+***** DOY POR HECHO QUE YA TIENES BSPWM INSTALADO PARA SABER COMO SE INSTALA BSPWM PUEDES CHECAR TU MISMO ******
 
 
 1- entrar en la carpeta compilar.
@@ -57,7 +57,7 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting fzf-extras --noconfirm
+yay -S dunst-git i3lock-fancy-git ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
 
