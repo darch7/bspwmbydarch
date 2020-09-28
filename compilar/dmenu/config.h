@@ -12,9 +12,14 @@ static const unsigned int fgalpha = OPAQUE;
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#2CB5C2", "#000000" },
-	[SchemeSel] = { "#000000", "#FF51DC" },
-	[SchemeOut] = { "#000000", "#FF51DC" },
+/* Blacktheme */	
+	[SchemeNorm] = { "#CFC7C4", "#000000" },
+	[SchemeSel] = { "#000000", "#dddddd" },
+	[SchemeOut] = { "#000000", "#dddddd" },
+/* Colorfull	*/
+/*	[SchemeNorm] = { "#2CB5C2", "#000000" }, */
+/*	[SchemeSel] = { "#000000", "#FF51DC" }, */
+/*	[SchemeOut] = { "#000000", "#FF51DC" }, */
 };
 static const unsigned int alphas[SchemeLast][2] = {
 	/*		fgalpha		bgalphga	*/
@@ -24,7 +29,7 @@ static const unsigned int alphas[SchemeLast][2] = {
 };
 
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 10;
+static unsigned int lines      = 8;
 
 /*
  * Characters not considered part of a word while deleting words

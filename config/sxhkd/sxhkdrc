@@ -12,7 +12,7 @@
 # terminal/launch menu
 super + {Return,d}
 		{st,dmenu_run}
-		
+
 # Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
 super + BackSpace
 		$HOME/.config/bspwm/scripts/menuapagado
@@ -27,39 +27,39 @@ super + ctrl + {m,x,y,z}
 super + alt {r,e}
 			{bspc wm -r;dunstify -i ~/.config/bspwm/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.config/bspwm/scripts/arch.png SXHKDRC RECARGADO}
 #_________________________Apps__________________________________________
-# Terminal
-super + e
-		pcmanfm
-# Browser	
+# Pcmanfm/Pcmanfm root
+super + {_,shift +} e
+		{pcmanfm,dsudo pcmanfm}
+# Browser
 super + w
 		google-chrome-stable
-# Pavucontrol 
-super + v 
+# Pavucontrol
+super + v
 		pavucontrol
 # Torrent
 super + b
 		transmission-gtk
-# Nitrogen/walls 
+# Nitrogen/walls
 super + n
 		nitrogen
-# Spotify		
+# Spotify
 super + m
 		env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
-# Leafpad 		
+# Leafpad
 super + l
 		leafpad
 # Telegram
 super + t
 		telegram-desktop
 # Wifi-menu/nmtui
-super + a 
+super + a
 		st -e nmtui
 # Htop
 super + h
 		st -e htop
 # Qemu the best VM
 super + k
-		virt-manager
+		dsudo virt-manager
 #____________________Manejos de ventanas_________________________________
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}
@@ -69,7 +69,7 @@ super + {o,s,i}
 super + {_,shift + }{Left,Down,Up,Right}
 		bspc node -{f,s} {west,south,north,east}
 
-# Fullscreen 
+# Fullscreen
 super + f
 		 bspc node -t {fullscreen,tiled}
 
@@ -136,7 +136,7 @@ XF86MonBrightnessDown
 		xbacklight -dec 10
 #__________________________Scripts______________________________________
 # Menu de capturas
-Print {_,shift + } 
+Print {_,shift + }
 		{maim -m 1 captura-pantalla-"$(date '+%y%m%d-%H%M-%S').png",$HOME/.config/bspwm/scripts/menucaptura}
 # Menu de grabacion de video
 super + Print
@@ -148,6 +148,3 @@ super + shift + m
 # Calendario/Clima/Calculadora/Redshift/Bluetooth/*****PDF DE ATAJOS*********
 alt + {F1,F2,F3,F4,F5,F12}
 		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,redshift,blueberry,zathura $HOME/.config/sxhkd/atajos/atajos.pdf}
-
-
-		

@@ -1,3 +1,62 @@
+#####################################################################################
+#                                                                                   #
+#                      ALT + F12 (PDF de atajos de bspwm)                           #
+#####################################################################################
+
+
+
+1- entrar en la carpeta compilar.
+
+compilar las dos st y dmenu
+
+cd dmenu
+sudo make clean install
+
+cd st
+sudo make clean install
+
+----------------------------------------------------
+
+2- entrar a la carpeta config
+ y copiar en TU .config estas carpetas
+
+ dunst, lemonbar, nvim, picom, redshift,sxhkdrc,etc 
+
+----------------------------------------------------
+
+
+3- entrar la carpeta bspwm que descargaste y copiar el contenido de el bspwmrc en TU bspwmrc que se encuentra en .config/bspwm/bspwmrc
+
+
+-------------------------------------------------------
+
+
+4- copiar los scripts que estan en la carpeta donde descargaste.
+dentro de la carpeta bspwm/scripts
+
+copiar la carpeta entera y pegar dentro de TU carpeta bspwm en
+.config/bspwm/scripts
+
+luego darle permisos
+
+sudo chmod +777 ~/.config/bspwm/scripts
+
+----------------------------------------------------------------
+
+copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
+se debe iniciar pcmanfm en modo root o por terminal con sudo.
+------------------------------------------------------------------
+
+
+
+
+#####################################################################################
+#                                                                                   #
+#                                DEPENDENCIAS                                       #
+#####################################################################################
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
 yay -S dunst-git st ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
@@ -34,3 +93,7 @@ yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
 Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tipo de formato de particiones)
 ----------------------------------------------------------------------------------------------------------------
 sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
