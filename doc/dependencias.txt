@@ -62,7 +62,7 @@ yay -S dunst-git i3lock-fancy-git ffmpeg maim xclip xdotool mpv unclutter zathur
 ------------------------------------------------------------------------
 
 
-sudo pacman -S fzf lxrandr wireless_tools redshift polkit-gnome telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv blueberry --noconfirm
+sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv blueberry 
 
 
 
