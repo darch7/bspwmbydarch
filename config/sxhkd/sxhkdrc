@@ -29,7 +29,7 @@ super + alt {r,e}
 #_________________________Apps__________________________________________
 # Pcmanfm/Pcmanfm root
 super + {_,shift +} e
-		{pcmanfm,dsudo pcmanfm}
+		{st -e ranger,sudo pcmanfm}
 # Browser
 super + w
 		google-chrome-stable
