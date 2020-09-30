@@ -43,7 +43,7 @@ sudo chmod +777 ~/.config/bspwm/scripts
 
 ----------------------------------------------------------------
 
-copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
+1- copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
 se debe iniciar pcmanfm en modo root o por terminal con sudo.
 ------------------------------------------------------------------
 
@@ -57,16 +57,18 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-yay -S dunst-git i3lock-fancy-git ffmpeg maim xclip xdotool mpv unclutter zathura ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete zathura-pdf-mupdf pfetch slock tty-clock cava cmatrix htop google-chrome picom-ibhagwan-git lemonbar-xft-git zsh zsh-autosuggestions zsh-history-substring-search zsh-completions-git zsh-fast-syntax-highlighting fzf-extras --noconfirm
+1- yay -S i3lock-fancy-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete tty-clock cava cmatrix google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
 
 
-sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk dmenu blueman nitrogen pavucontrol geany neovim sxiv blueberry 
+
+1- para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
+
+2- sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting 
 
 
 
-para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
 ---------------------------------------------------------------
 LEMONBAR DEPENDENCIAS
 --------------------------------------------------------------
@@ -75,24 +77,24 @@ git clone https://github.com/baskerville/sutils.git
 git clone https://github.com/baskerville/xtitle.git
 
 
-make
-sudo make install
+1- make
+2- sudo make install
 
 
 
 ------------------------------------------------------------
 instalar spotify + adblock
 ------------------------------------------------------------
-gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
+1- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
 
 
-yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
+2 -yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
 
 
 --------------------------------------------------------------------------------------------------------------
 Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tipo de formato de particiones)
 ----------------------------------------------------------------------------------------------------------------
-sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
+1- sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
 
 
 
