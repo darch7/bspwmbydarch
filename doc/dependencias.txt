@@ -57,7 +57,7 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-1- yay -S i3lock-fancy-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete tty-clock cava cmatrix google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
+1- yay -S python-ueberzug-git i3lock-fancy-git ttf-menlo-powerline-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete tty-clock cava cmatrix google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 1- para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
 
-2- sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting 
+2- sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger --noconfirm
 
 
 
