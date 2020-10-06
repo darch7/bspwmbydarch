@@ -81,17 +81,36 @@ git clone https://github.com/baskerville/xtitle.git
 ------------------------------------------------------------
 instalar spotify + adblock
 ------------------------------------------------------------
-1- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
+#### opcion 1 ####
+1- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45 
+
+( en caso que no te tome la llave) ===> curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+
 
 
 2- yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#### opcion 2 ####
+# Herramientas
+(sudo pacman -S wget git tar)
+
+1- git clone https://github.com/abba23/spotify-adblock-linux.git
+2- cd spotify-adblock-linux
+3- wget -O cef.tar.bz2 http://opensource.spotify.com/cefbuilds/cef_binary_80.0.8%2Bgf96cd1d%2Bchromium-80.0.3987.132_linux64_minimal.tar.bz2
+4- tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
+5- make
+6- sudo make install
+7- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
+8- yay -S spotify
 
 
 --------------------------------------------------------------------------------------------------------------
 Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tipo de formato de particiones)
 ----------------------------------------------------------------------------------------------------------------
-1- sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
 
+
+1- sudo pacman -S android-file-transfer android-tools android-udev msmtp libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs gvfs-google dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs udftools xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib libdvdcss libdvdread dvd+rw-tools lame --noconfirm
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
