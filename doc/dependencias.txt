@@ -41,10 +41,6 @@ luego darle permisos
 
 sudo chmod +777 ~/.config/bspwm/scripts
 
-----------------------------------------------------------------
-
-1- copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
-se debe iniciar pcmanfm en modo root o por terminal con sudo.
 ------------------------------------------------------------------
 
 
@@ -57,7 +53,7 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-1- yay -S python-ueberzug-git i3lock-fancy-git ttf-menlo-powerline-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete tty-clock cava cmatrix google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
+1- yay -S ttf-menlo-powerline-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
 
@@ -65,7 +61,7 @@ se debe iniciar pcmanfm en modo root o por terminal con sudo.
 
 1- para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
 
-2- sudo pacman -S fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger --noconfirm
+2- sudo pacman -S ueberzug slock fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger --noconfirm
 
 
 
@@ -88,7 +84,7 @@ instalar spotify + adblock
 1- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
 
 
-2 -yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
+2- yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
 
 
 --------------------------------------------------------------------------------------------------------------
@@ -99,3 +95,7 @@ Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tip
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+root ~
+
+1- copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
+se debe iniciar pcmanfm en modo root o por terminal con sudo.
