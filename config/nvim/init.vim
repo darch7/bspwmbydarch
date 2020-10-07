@@ -7,144 +7,134 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
-" PLUGINS *******************************************************************
-
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+let NERDTreeShowHidden=1
+
+" Plug install packages - - - - - - - - - - - - - - - - - -
+
 Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'preservim/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
-" TEMA POWERLINE *************************************************************
+" Configuraciones no tocar - - - - - - - - - - - - - - - - - -
 
-let g:airline_theme = 'base16_grayscale'
-let g:airline_powerline_fonts = 1
+" Abrir automaticamente el arbol de carpetas
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" NERDTREE *******************************************************************
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+colorscheme solarized
 
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" OTRAS COSAS NO TOCAR *******************************************************
-
-set bg=light
-set go=a
+" Activar click de mouse
 set mouse=a
-set nohlsearch
+
+" Activar portapapeles
 set clipboard+=unnamedplus
+
+" Estilo basi de la molesta linea inferior
+set laststatus=3
+
+" Don't try to be vi compatible
+set nocompatible
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" TODO: Load plugins here (pathogen or vundle)
+
+" Turn on syntax highlighting
 syntax on
-set encoding=UTF-8
-set t_Co=256
-syntax on
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+" let mapleader = ","
+
+" Security
+set modelines=0
+
+" Show line numbers
 set number
-let no_buffers_menu=1
-set mousemodel=popup
-set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Droid:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-  else
-    if $TERM == 'xterm'
-      set term=xterm-256color
-    endif
-  endif
-endif
-if &term =~ '256color'
-  set t_ut=
-endif
-set gcr=a:blinkon0
+
+" Show file stats
+set ruler
+
+" Blink cursor on error instead of beeping (grr)
+set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
 set scrolloff=3
-set laststatus=2
-set modeline
-set modelines=10
-set title
-set titleold="Terminal"
-set titlestring=%F
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-nnoremap n nzzzv
-nnoremap N Nzzzv
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_skip_empty_sections = 1
-	nnoremap c "_c
-	set nocompatible
-	filetype plugin on
-	syntax on
-	set encoding=utf-8
-	set number relativenumber
-	set wildmode=longest,list,full
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
-	set splitbelow splitright
-	map <leader>n :NERDTreeToggle<CR>
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    if has('nvim')
-        let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
-    else
-        let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
-    endif
-	nm <leader>d :call ToggleDeadKeys()<CR>
-	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
-	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
-	map Q gq
-	map <leader>s :!clear && shellcheck %<CR>
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
-	nnoremap S :%s//g<Left><Left>
-	map <leader>c :w! \| !compiler <c-r>%<CR>
-	map <leader>p :!opout <c-r>%<CR><CR>
-	autocmd VimLeave *.tex !texclear %
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	map <leader>v :VimwikiIndex
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-	autocmd BufRead,BufNewFile *.tex set filetype=tex
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
-	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritepre * %s/\n\+\%$//e
-	autocmd BufWritePost files,directories !shortcuts
-	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
-if &diff
-    highlight! link DiffText MatchParen
-endif
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Last line
+set showmode
+set showcmd
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+

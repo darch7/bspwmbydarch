@@ -58,3 +58,4 @@ bspc config presel_feedback_color "#FF492B"
 bspc rule -a Blueberry.py state=floating center=true
 bspc rule -a Zathura state=floating center=true
 bspc rule -a Pavucontrol state=floating center=true
+bspc rule -a Nitrogen state=floating rectangle=800x500+0+0 center=on
