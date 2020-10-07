@@ -129,10 +129,12 @@ shift + F10
 shift + F12
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 #Brightness up
-XF86MonBrightnessUp
-		xbacklight -inc 10
+#XF86MonBrightnessUp
+shift + F3
+	xbacklight -inc 10
 #Brightness down
-XF86MonBrightnessDown
+#XF86MonBrightnessDown
+shift + F2
 		xbacklight -dec 10
 #__________________________Scripts______________________________________
 # Menu de capturas
