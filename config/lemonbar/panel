@@ -32,6 +32,12 @@ mkfifo "$PANEL_FIFO"
 
 bspc subscribe report > "$PANEL_FIFO" &
 
+#NET
+while true; do
+echo -e 'N' $(ip addr | awk '/state UP/ { print $2 }' | cut -d":" -f1)
+sleep 5
+done > "$PANEL_FIFO" &
+
 #HORA
 while true; do
 echo -e 'C' $(date +'%H:%M')
