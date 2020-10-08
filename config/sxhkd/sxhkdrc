@@ -59,7 +59,10 @@ super + h
 		st -e htop
 # Qemu the best VM
 super + k
-		dsudo virt-manager
+		sudo virt-manager
+# Nvim
+super + shift + n
+ 		st -e nvim
 #____________________Manejos de ventanas_________________________________
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}
@@ -116,22 +119,22 @@ super { ,+ shift }+ z
 # Subir,Bajar Volumen
 XF86Audio{Raise,Lower}Volume
 		amixer sset Master 5%{+,-}
-#Mute
+# Mute
 XF86AudioMute
 		amixer -D pulse set Master 1+ toggle
 # Play/Pause
-shift + F11
+shift + F7
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 # Prev
-shift + F10
+shift + F6
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 # Next
-shift + F12
+shift + F8
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 #Brightness up
 #XF86MonBrightness
 shift + Up
-	xbacklight -inc 10
+		xbacklight -inc 10
 #Brightness down
 #XF86MonBrightnessDown
 shift + Down
