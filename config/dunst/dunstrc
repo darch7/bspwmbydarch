@@ -10,8 +10,8 @@
     padding = 10
     horizontal_padding = 10
     frame_width = 3
-    #frame_color = "#FF51DC"
-	frame_color = "#dddddd"
+    frame_color = "#FF51DC"
+  #	frame_color = "#dddddd"
 	
     # Define a color for the separator.
     # possible values are:
@@ -84,8 +84,8 @@
 
 [urgency_normal]
     background = "#181818"
-    #foreground = "#FFFF00"
-    foreground = "#CFC7C4"
+    foreground = "#FFFF00"
+    #foreground = "#CFC7C4"
     timeout = 5
 
 [urgency_critical]
