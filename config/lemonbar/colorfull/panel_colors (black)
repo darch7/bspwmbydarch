@@ -31,5 +31,7 @@ COLOR_RED_FG="#dddddd"
 COLOR_CPU_FG="#dddddd"
 COLOR_TMP_FG="#dddddd"
 COLOR_CLIMA_FG="#dddddd"
-
+COLOR_ETHERNET="#dddddd"
+COLOR_NORED="#DE2C09"
+COLOR_BRILLO="#dddddd"
 

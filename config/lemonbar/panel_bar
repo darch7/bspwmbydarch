@@ -48,11 +48,13 @@ while read -r line ; do
 		BI*)
 			# CARGA DE BATERIA
 			charge="${line#??}"
-			if [ $charge -lt "12" ]
+			if [ $charge -lt "12" ]  
 			then
+			dunstify -i $HOME/.config/dunst/iconpng/cargar1.png ¡BATERIA_MUY_BAJA! 
 			batt=`echo -e ""`
-			elif [ $charge -lt "37" ]
+			elif [ $charge -lt "32" ] 
 			then
+			dunstify -i $HOME/.config/dunst/iconpng/cargar.png ¡BATERIA_BAJA!   
 			batt=`echo -e ""`
 			elif [ $charge -lt "62" ]
 			then
