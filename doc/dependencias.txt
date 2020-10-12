@@ -7,12 +7,9 @@
 
 1- entrar en la carpeta compilar.
 
-compilar las dos st y dmenu
+compilar dmenu
 
 cd dmenu
-sudo make clean install
-
-cd st
 sudo make clean install
 
 ----------------------------------------------------
