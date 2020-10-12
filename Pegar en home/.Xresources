@@ -2,9 +2,9 @@ xterm*loginShell: true
 xterm*VT100.geometry: 80x25
 XTerm*renderFont: true
 XTerm*faceName: xft:Mononoki Nerd Font, \
-                xft:SF Mono:size=9, \
-                xft:SF Mono:style=Medium:size=9   
-XTerm*faceSize: 10
+                xft:SF Mono:size=10, \
+                xft:SF Mono:style=Medium:size=10   
+XTerm*faceSize: 12
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*dynamicColors: true
 xterm*utf8: 2
@@ -19,9 +19,8 @@ xterm*multiScroll: true
 xterm*toolBar: false
 xterm*selectToClipboard: true
 xterm*VT100.Translations: #override \
-        Shift <Key>Insert:    insert-selection(SELECT) \n\
-                Shift <Key>V:    insert-selection(SELECT) \n\
-                Shift <Key>C:    copy-selection(SELECT)
+				Alt <Key>V:    insert-selection(SELECT) \n\
+                Alt <Key>C:    copy-selection(SELECT)
 
 /* !! darch theme colors: */
 *.background: #000000
