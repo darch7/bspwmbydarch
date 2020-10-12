@@ -11,7 +11,7 @@
 #_______________________Atajos Basicos__________________________________
 # terminal/launch menu
 super + {Return,d}
-		{st,dmenu_run}
+		{xterm,dmenu_run}
 
 # Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
 super + BackSpace
@@ -29,7 +29,7 @@ super + alt {r,e}
 #_________________________Apps__________________________________________
 # Pcmanfm/Pcmanfm root
 super + {_,shift +} e
-		{st -e ranger,sudo pcmanfm}
+		{xterm ranger,sudo pcmanfm}
 # Browser
 super + w
 		google-chrome-stable
@@ -53,16 +53,16 @@ super + t
 		telegram-desktop
 # Wifi-menu/nmtui
 super + a
-		st -e nmtui
+		xterm -e nmtui
 # Htop
 super + h
-		st -e htop
+		xterm htop
 # Qemu the best VM
 super + k
 		sudo virt-manager
 # Nvim
 super + shift + n
- 		st -e nvim
+ 		xterm nvim
 #____________________Manejos de ventanas_________________________________
 # rotar ventanas 90°/ventana flotante/fijar ventana/
 super + {o,s,i}
@@ -152,4 +152,4 @@ super + shift + m
 #__________________________Utilidades___________________________________
 # Calendario/Clima/Calculadora/Redshift/Bluetooth/*****PDF DE ATAJOS*********
 alt + {F1,F2,F3,F4,F5,F12}
-		{st -e calcurse,setsid st -e less -Srf "$HOME/.config/weatherreport",st -e bc -l,redshift,blueberry,zathura $HOME/.config/sxhkd/atajos/atajos.pdf}
+		{xterm calcurse,setsid xterm  less -Srf "$HOME/.config/weatherreport",xterm bc -l,redshift,blueberry,zathura $HOME/.config/sxhkd/atajos/atajos.pdf}

@@ -53,7 +53,7 @@ sudo chmod +777 ~/.config/bspwm/scripts
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-1- yay -S ttf-menlo-powerline-git ttf-dejavu nerd-fonts-dejavu-complete noto-fonts-emoji adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome nerd-fonts-dejavu-complete google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
+1- yay -S nerd-fonts-mononoki  adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome google-chrome picom-ibhagwan-git lemonbar-xft-git fzf-extras --noconfirm
 
 ------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ sudo chmod +777 ~/.config/bspwm/scripts
 
 1- para vim : wget https://archive.archlinux.org/packages/m/msgpack-c/msgpack-c-3.3.0-1-x86_64.pkg.tar.zst && sudo pacman -U msgpack-c-3.3.0-1-x86_64.pkg.tar.zst
 
-2- sudo pacman -S ueberzug slock fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger --noconfirm
+2- sudo pacman -S xterm ueberzug slock fzf lxrandr wireless_tools redshift telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger --noconfirm
 
 
 

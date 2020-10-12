@@ -26,6 +26,8 @@ dunst &
 curl -sf "wttr.in/$LOCATION?lang=es" > "$HOME/.config/weatherreport" &
 unclutter &
 xsetroot -cursor_name left_ptr &
+xrdb -merge ~/.Xresources
+devilspie &
 
 #_______________CONFIGURACION DE 1 Y 2 MONITORES________________________
 
