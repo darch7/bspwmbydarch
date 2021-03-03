@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+reload_bspwm="bspc wm -r;killall dunst;dunstify -i $HOME/.config/dunst/iconpng/arch.png BSPWMRC RECARGADO"
+reload_sxhkd="pkill -USR1 -x sxhkd;dunstify -i $HOME/.config/dunst/iconpng/arch.png SXHKDRC RECARGADO"
+reb="reboot"
+shut="poweroff"
+logout="killall panel;bspc quit"
+
+cmds="\
+   Bloquear	slock
+  Cerrar Sesion	${logout}
+   Recargar_BSPwm	${reload_bspwm}
+   Recargar_Sxhkd	 ${reload_sxhkd}
+   Reiniciar PC	${reb}
+   Apagar PC	${shut}"
+
+choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -p " Menu de apagado" -dmenu -lines 6 -width 17)" || exit 1
+
+action=$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f2)
+
+IFS=';' read -ra com <<< "$action"
+
+for i in "${com[@]}"
+do
+$i
+done

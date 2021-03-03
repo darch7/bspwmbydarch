@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yay -Scc --noconfirm && sudo pacman -Scc --noconfirm && sudo pacman -Rsn $(pacman -Qdtq) --noconfirm

@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s wttr.in/$LOCATION?lang=es 

@@ -1,0 +1,184 @@
+#                  ██      ██          ██
+#                 ░██     ░██         ░██
+#   ██████ ██   ██░██     ░██  ██     ░██
+#  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+# ░░█████  ░░███  ░██░░░██░████   ██░░░██
+#  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+#  ██████  ██ ░░██░██  ░██░██░░██░░██████
+# ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░
+
+
+#_______________________Atajos Basicos__________________________________
+# launch menu
+super + {_,shift +} d
+		{rofi -modi drun -show drun -width 22,pass rofi_root}
+#Terminal
+super + {_,shift +} Return
+		{st,st -e tmux} 
+# Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
+super + BackSpace
+		$HOME/.local/bin/scripts/menuapagado
+# Cerrar apps<
+super + q
+		bspc node -{c,k}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+		bspc node -g {marked,locked,sticky,private}
+# Recargar por defecto
+super + alt {r,e}
+			{bspc wm -r;dunstify -i ~/.local/bin/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.local/bin/scripts/arch.png SXHKDRC RECARGADO}
+#_________________________Apps__________________________________________
+# ranger/ranger root
+super + {_,shift +} e
+		{st -e ranger,sudo -A st -e ranger} 
+# Pcmanfm/pcmanfm root
+super + {_,shift +} r
+		{pcmanfm,sudo -A pcmanfm}	
+# Browser
+super + w
+		google-chrome-stable
+# Pavucontrol
+super + v
+		pavucontrol
+# Torrent
+super + b
+		transmission-gtk
+# Nitrogen/walls
+super + n
+		nitrogen
+# Spotify
+super + m
+		env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
+# Leafpad
+super + l
+		leafpad
+# Telegram
+super + t
+		telegram-desktop
+# Wifi-menu/nmtui
+super + a
+		st -e nmtui
+# Htop
+super + h
+		st -e htop
+# Qemu the best VM
+super + k
+		virt-manager
+# Nvim
+super + shift + n
+ 		st -e nvim
+#____________________Manejos de ventanas_________________________________
+# rotar ventanas 90°/ventana flotante/fijar ventana/
+super + {o,s,i}
+		{bspc node @focused:/ -R 90,bspc node focused -t \~floating,bspc node -g sticky}
+
+# Cursor de ventanas
+super + {_,shift + }{Left,Down,Up,Right}
+		bspc node -{f,s} {west,south,north,east}
+
+# Fullscreen
+super + f
+		 bspc node -t {fullscreen,tiled}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+		bspc desktop -f {prev,next}.local
+
+# Volver a el area de trabajo anterior
+super + {grave,Tab}
+		bspc {node,desktop} -f last
+
+# Enviar ventanas a otra area de trabajo
+super + {_,shift + }{1-9,0}
+		bspc {desktop -f,node -d} '^{1-9,10}'
+#_________________________preselect____________________________________
+# Preseleccion para lanzar ventanas
+super + p
+		bspc node -p "~"{west,north,east,south}
+
+# Cancelar preseleccion
+super + shift + p
+		bspc node -p cancel
+
+# preselect the ratio
+super + ctrl + {1-9}
+		bspc node -o 0.{1-9}
+#________________________move/resize____________________________________
+# mover ventana flotante
+super + alt + {Left,Down,Up,Right}
+		bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# expander ventana
+ctrl + {Left,Down,Up,Right}
+		bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contraer ventana
+ctrl + shift + {Left,Down,Up,Right}
+		bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# resize gaps de ventanas
+super { ,+ shift }+ z
+		bspc config window_gap $(($(bspc config window_gap) {+,-} 3))
+#_______________________Multimedia______________________________________
+# Subir,Bajar Volumen
+XF86Audio{Raise,Lower}Volume
+		amixer sset Master 5%{+,-}
+# Mute
+XF86AudioMute
+		amixer -D pulse set Master 1+ toggle
+# Play/Pause
+shift + F7
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+# Prev
+shift + F6
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+# Next
+shift + F8
+		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+#Brightness up
+#XF86MonBrightness
+shift + Up
+		xbacklight -inc 5
+#Brightness down
+#XF86MonBrightnessDown
+shift + Down
+		xbacklight -dec 5
+#__________________________Scripts______________________________________
+# Menu de capturas
+Print {_,shift + }
+		{maim -m 1 D-shot-captura-pantalla-"$(date '+%y%m%d-%H%M-%S').png",$HOME/.local/bin/scripts/menucaptura}
+# Menu de grabacion de video
+super + Print
+		$HOME/.local/bin/scripts/menugrabacion
+# Monitor
+super + shift + m
+		lxrandr
+#__________________________Utilidades____________________________________
+# Clima 
+alt + F1
+	 st -e sh -c 'clima ; $SHELL'
+# Calendario
+alt + F2
+		st -e calcurse
+# Bluetooth
+alt + F3
+		blueberry
+# Calculadora
+alt + F4
+		st -e bc -lq
+# Redshift
+alt + F5
+		redshift
+# PDF ATAJOS SXHKDRC
+alt + F12
+			zathura $HOME/.config/sxhkd/atajos/atajos.pdf
+
+#___________________________Polybar____________________________________
+# Ocultar Polybar
+super + alt + space
+	polybar-msg cmd hide 
+	
+# Mostrar Polybar 
+super + ctrl + space 
+	polybar-msg cmd show

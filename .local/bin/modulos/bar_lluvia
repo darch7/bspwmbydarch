@@ -1,0 +1,7 @@
+#! /bin/sh
+
+curl -sf "wttr.in/$LOCATION?lang=es" > "$HOME/.config/weatherreport"
+
+lluvia=$(sed '16q;d' "$HOME/.config/weatherreport" | grep -wo "[0-9]*%" | sort -rn | sed "s/^/ /g;1q" | tr -d '\n')
+
+echo "$lluvia"

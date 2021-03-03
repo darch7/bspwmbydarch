@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+# En caso debe tener instalada la dependencia ACPI en otros no.
+bateria_porcentaje=$(acpiconf -i 0 | grep -i "Remaining capacity:" | awk -F " " '{print $3}' | sed 's/%//g')
+echo $bateria_porcentaje%

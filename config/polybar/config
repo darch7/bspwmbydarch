@@ -1,0 +1,594 @@
+
+
+; Configuracion personal de polybar con scripts personalizados en .local/bin (la mayoria de las cosas que aparecen en la barra son scripts individuales).
+
+[colors]
+background = ${xrdb:background}
+background-alt = #000000E6
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:foreground}
+primary = ${xrdb:color2}
+secondary = ${xrdb:color7}
+alert = ${xrdb:color9}
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14} 
+color15 = ${xrdb:color15}
+color256 = ${xrdb:color256}
+color257 = ${xrdb:color257}
+
+; Bar 1 ---------------------------------------------------------------
+[bar/bar1]
+;monitor = ${env:MONITOR:HDMI-A-2}
+width = 97.7%
+height = 22
+offset-x = 1%
+offset-y = 0.8%
+radius = 0
+fixed-center = true
+font-0 = fixed:pixelsize=11.2;2
+font-1 = "Font Awesome 5 Free:style=Solid:size=11;2"
+font-2 = "Font Awesome:style=Solid:size=11"
+font-3 = "Source Han Sans JP:Bold:size=12;2"
+font-4 = "Iosevka Nerd Font:style=Medium:size=13;3"
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+border-size = 0
+border-color = 
+padding-left = 2
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+enable-ipc = true
+modules-left = flechaizq izq usuario der arribacierra2 
+modules-center = arribaabre izq bspwm der arribacierra
+modules-right = arribaabre2 izq hora slash fecha der guion izq battery wifi der flechader
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;Barra Abajo 2 ---------------------------------------------------------------------
+
+[bar/bar2]
+;monitor = ${env:MONITOR:HDMI-A-2}
+bottom = true
+width = 97.7%
+height = 22
+offset-x = 1%
+offset-y = 0.8%
+radius = 0
+fixed-center = true
+font-0 = fixed:pixelsize=11.2;2
+font-1 = "Font Awesome 5 Free:style=Solid:size=11;2"
+font-2 = "Font Awesome:style=Solid:size=11"
+font-3 = "Source Han Sans JP:Bold:size=12;2"
+font-4 = "Iosevka Nerd Font:style=Medium:size=13;3"
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+padding-left = 2
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+enable-ipc = true
+modules-left = izq logotitulo der xwindow
+modules-center = abajoabre izq lluvia frio calor ram cpu temperature xbacklight pulseaudio der abajocierra
+modules-right = abajoabre izq network-trafico der flechader 
+wm-restack = bspwm
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+border=true
+border-modules-center-size = 1.5
+border-modules-center-color = ${colors.color10}
+
+;--------------------------------------------------------------------------------
+
+[module/xwindow]
+type = internal/xwindow
+label = " %title:0:30:...%"
+label-foreground = ${colors.color3}
+format-foreground = ${colors.color3}
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %name%
+label-focused-foreground = ${colors.color10}
+label-focused-underline= ${colors.color10}
+label-focused-padding = 1
+label-occupied = %name%
+label-occupied-foreground = ${colors.color2}
+label-occupied-padding = 1
+label-urgent = %name%
+label-urgent-foreground = ${colors.color1}
+label-urgent-padding = 1
+label-empty = %name%
+label-empty-foreground = ${colors.color0}
+label-empty-padding = 1
+label-focused-background = ${colors.background}
+label-focused-underline-background = ${colors.background}
+label-occupied-background = ${colors.background}
+label-urgent-background = ${colors.background}
+label-empty-background = ${colors.background}
+
+[module/xbacklight]
+type = internal/xbacklight
+format ="|  <label> <%percentage%%> "
+label = %percentage%%
+label-foreground = ${colors.color7}
+format-foreground = ${colors.color7}
+format-background = ${colors.background}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+format-background = ${colors.background}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = "|  <label-volume>"
+format-muted = "|  <label-muted>"
+label-volume = %percentage%%
+label-muted = %percentage%%
+label-volume-foreground = ${colors.color4}
+label-muted-foreground = ${colors.color1}
+format-volume-foreground = ${colors.color4}
+format-muted-foreground = ${colors.color1}
+format-volume-background = ${colors.background}
+format-muted-background = ${colors.background}
+
+[module/battery]
+type = internal/battery
+full-at = 100
+battery = BAT0
+adapter = AC
+poll-interval = 5
+time-format = %H:%M
+ 
+format-charging = <animation-charging><label-charging>    
+format-discharging = <ramp-capacity><label-discharging>  
+
+label-charging = " %percentage%%  "
+label-charging-foreground = ${colors.color13}
+label-discharging = " %percentage%%  "
+label-discharging-foreground = ${colors.color13}
+label-charging-background = ${colors.background}
+label-discharging-background  = ${colors.background}
+format-charging-background  = ${colors.background}
+format-discharging-background  = ${colors.background}
+
+label-full = 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.color13}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-framerate = 600
+animation-charging-foreground = ${colors.color13}
+animation-charging-background = ${colors.background}
+
+animation-discharging-0= 
+animation-discharging-1= 
+animation-discharging-2= 
+animation-discharging-3= 
+animation-discharging-4= 
+animation-discharging-framerate = 500
+animation-discharging-foreground = ${colors.color13}
+format-background = ${colors.background}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = "<ramp> <label> " 
+format-warn = "<ramp> <label-warn> "
+label =%temperature%
+label-warn = %temperature%
+ramp-0 =|  
+ramp-1 =|  
+ramp-2 =|  
+label-foreground = ${colors.color257}
+format-foreground = ${colors.color257}
+format-warn-foreground = ${colors.color257}
+format-background = ${colors.background}
+format-warn-background = ${colors.background}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 0
+
+[module/wifi]
+type = custom/script
+exec = bar_wifi 2>/dev/null
+format = "  <label>"
+click-left = st -e nmtui
+label = %output% 
+label-padding = 0
+tail = true
+interval = 20
+label-foreground = ${colors.color11}
+format-foreground = ${colors.color11}
+format-background = ${colors.background}
+
+[module/network-trafico]
+type = custom/script
+exec = ~/.local/bin/modulos/bar_network_trafico
+tail = true
+label-foreground = ${colors.color11}
+format-foreground = ${colors.color11}
+format-background = ${colors.background}
+
+
+[module/ram]
+type = custom/script
+exec = bar_ram 2>/dev/null
+format = "|   <label> "
+click-left = st -e htop
+label = %output%
+label-padding = 0
+tail = true
+interval = 10
+label-foreground = ${colors.color3}
+format-foreground = ${colors.color3}
+format-background = ${colors.background}
+
+[module/lluvia]
+type = custom/script
+exec = bar_lluvia 2>/dev/null
+format ="<label> "
+click-left = st -e sh -c 'clima ; $SHELL'
+label = %output%
+label-padding = 0
+tail = true
+interval = 7200
+label-foreground = ${colors.color14}
+format-foreground = ${colors.color14}
+format-background = ${colors.background}
+
+[module/frio]
+type = custom/script
+exec = bar_frio 2>/dev/null
+format ="<label> "
+click-left = st -e sh -c 'clima ; $SHELL'
+label = %output%
+label-padding = 0
+tail = true
+interval = 7200
+label-foreground = ${colors.color14}
+format-foreground = ${colors.color14}
+format-background = ${colors.background}
+
+[module/calor]
+type = custom/script
+exec = bar_calor 2>/dev/null
+format ="<label> "
+click-left = st -e sh -c 'clima ; $SHELL'
+label = %output%
+label-padding = 0
+tail = true
+interval = 7200
+label-foreground = ${colors.color14}
+format-foreground = ${colors.color14}
+format-background = ${colors.background}
+
+
+[module/cpu]
+type = custom/script
+exec = bar_cpu 2>/dev/null
+format = "|  <label> "
+label = %output%
+label-padding = 0
+tail = true
+interval = 10
+label-foreground = ${colors.color256}
+format-foreground = ${colors.color256}
+format-background = ${colors.background}
+
+[module/fecha]
+type = custom/script
+exec = bar_fecha 2>/dev/null
+format =" <label>"
+label = %output%
+label-padding = 0
+interval = 5
+tail = true
+label-foreground = ${colors.color2}
+format-foreground = ${colors.color2}
+click-left = setsid -f st -e calcurse
+format-background = ${colors.background}
+
+[module/hora]
+type = custom/script
+exec = bar_hora 2>/dev/null
+format = " <label>"
+label = %output%
+label-padding = 0
+interval = 5
+tail = true
+label-foreground = ${colors.color2}
+format-foreground = ${colors.color2}
+click-left = setsid -f st -e calcurse
+format-background = ${colors.background}
+
+[module/usuario]
+type = custom/script
+exec = bar_usuario 2>/dev/null
+format = " <label>"
+click-left = zathura $HOME/.config/sxhkd/atajos/atajos.pdf
+label = %output%
+label-padding= 0
+label-foreground = ${colors.color14}
+format-foreground = ${colors.color14}
+format-background = ${colors.background}
+
+[module/logotitulo]
+type = custom/text
+content =""
+label-padding= 0
+content-foreground = ${colors.color6}
+content-background = ${colors.background}
+
+; Separadores --------------------------------------------------------------
+[module/arribaabre]
+type = custom/text
+content ="└"
+label-padding= 0
+content-foreground = ${colors.color6}
+
+[module/arribaabre2]
+type = custom/text
+content ="└"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/arribacierra]
+type = custom/text
+content = "┘"
+label-padding= 0
+content-foreground = ${colors.color6}
+
+[module/abajoabre]
+type = custom/text
+content = "┌"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/abajocierra]
+type = custom/text
+content = "┐"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/slash]
+type = custom/text
+content =" / "
+label-padding= 0
+content-foreground = ${colors.color2}
+content-background = ${colors.background}
+
+[module/arribacierra2]
+type = custom/text
+content = "┘"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/flechaizq]
+type = custom/text
+content = "‹─"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/flechader]
+type = custom/text
+content = "─›"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+[module/guion]
+type = custom/text
+content = "─"
+label-padding= 0
+content-foreground = ${colors.color10}
+
+
+;Separador PolyGod ---------------------------------------------------------
+
+[glyph]
+gright = 
+gleft = 
+
+[module/izq]
+type = custom/text
+content-background = 
+content-foreground = ${colors.background}
+content = ${glyph.gleft}
+content-font = 3
+
+[module/der]
+type = custom/text
+content-background = 
+content-foreground = ${colors.background}
+content = ${glyph.gright}
+content-font = 3
+
+[glyph]
+fright = 
+fleft = 
+
+[module/fuegoizq]
+type = custom/text
+content-background = 
+content-foreground = ${colors.background}
+content = ${glyph.fleft}
+content-font = 3
+
+[module/fuegoder]
+type = custom/text
+content-background = 
+content-foreground = ${colors.background}
+content = ${glyph.fright}
+content-font = 3
+
+;MODULOS SIN USAR---------------------------------------------------------<
+
+;[module/carga]
+;type = custom/script
+;exec = bar_carga 2>/dev/null
+;format = "<label>"
+;label = %output%
+;label-padding = 0
+;tail = true
+;interval = 10
+;label-foreground = ${colors.color3}
+
+;[module/bateria]
+;type = custom/script
+;exec = bar_bateria 2>/dev/null
+;format = "<label>"
+;label = %output%
+;label-padding = 0
+;interval = 5
+;tail = true
+;format-foreground = ${root.foreground}
+
+;[module/date]
+;type = internal/date
+;interval = 1
+;date = "%A, %d %b"
+;time = %H:%M
+;format-prefix = 
+;format-prefix-foreground = ${colors.foreground-alt}
+;label = %date% %time%
+
+;[module/xkeyboard]
+;type = internal/xkeyboardtemperature
+;blacklist-0 = num lock
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-underline = ${colors.secondary}
+;label-layout = %layout%
+;label-layout-underline = ${colors.secondary}
+;label-indicator-padding = 2
+;label-indicator-margin = 1
+;label-indicator-background = ${colors.secondary}
+;label-indicator-underline = ${colors.secondary}
+
+;[module/filesystem]
+;type = internal/fs
+;interval = 25
+;mount-0 = /
+;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+;label-unmounted = %mountpoint% not mounted
+;label-unmounted-foreground = ${colors.foreground-alt}
+
+;[module/wlan]
+;type = internal/network
+;interface = wlan0
+;interval = 3.0
+;format-connected = <ramp-signal> <label-connected>
+;label-connected = %essid%
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.color1}
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;amp-signal-2 = 
+;amp-signal-3 = 
+;amp-signal-4 = 
+;amp-signal-foreground = ${colors.color11}
+
+;[module/eth]
+;type = internal/network
+;interface = em0
+;interval = 3.0
+
+;format-connected-underline = ${xrdb:color3}
+;format-connected-prefix = " "
+;format-connected-prefix-foreground = ${colors.foreground-alt}
+;label-connected = %local_ip%
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+;[module/alsa]
+;type = internal/alsa
+;format-volume = <label-volume> <bar-volume>
+;label-volume = VOL
+;label-volume-foreground = ${root.foreground}
+;format-muted-prefix = " "
+;format-muted-foreground = ${colors.foreground-alt}
+;label-muted = sound muted
+;bar-volume-width = 10
+;bar-volume-foreground-0 = #55aa55
+;bar-volume-foreground-1 = #55aa55
+;bar-volume-foreground-2 = #55aa55
+;bar-volume-foreground-3 = #55aa55
+;bar-volume-foreground-4 = #55aa55
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+;bar-volume-gradient = false
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 2
+;bar-volume-fill = ─
+;bar-volume-fill-font = 2
+;bar-volume-empty = ─
+;bar-volume-empty-font = 2
+;bar-volume-empty-foreground = ${colors.foreground-alt}
+
+;[module/pacman-updates]
+;type = custom/script
+;exec = checkupdates | wc -l
+;interval = 1000
+;format =" <label>"
+;format-warn =" <label-warn>"
+;label = Up: %output%
+;label-warn = Up: %output%
+;format-foreground = #ffbb00
+;format-warn-foreground = #D6000A
+
+;[module/memory]
+;type = internal/memory
+;interval = 2
+;format-prefix =" "
+;format-prefix-foreground = ${colors.color3}
+;label =%percentage_used%%
+;label-foreground = ${colors.foreground-alt}
+
+; vim:ft=dosini
+
+
+

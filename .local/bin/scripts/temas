@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# terminal
+xrdb -merge ~/.Xresources
+#rofi borde                                 
+sed -i "/selected-active-background:/ cselected-active-background: $(xrdb -query | grep '.color12:' | awk '{print $NF}');" $HOME/.config/rofi/themes-rofi.rasi 
+
+#dunst
+frame_color='"'$(xrdb -query | grep '.color10:' | awk '{print $NF}')'"'
+foreground='"'$(xrdb -query | grep '.color3:' | awk '{print $NF}')'"'
+sed -i '/Bordes De Notificaciones/{n;s/.*/frame_color = '$frame_color'/}' $HOME/.config/dunst/dunstrc
+sed -i '/Letra de Notificaciones/{n;s/.*/foreground = '$foreground'/}' $HOME/.config/dunst/dunstrc
+
+#recargar dunst
+pkill dunst
+dunst &

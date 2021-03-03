@@ -1,0 +1,15 @@
+#!/bin/bash
+
+git init
+git add --all 
+
+# comentario de actualizacion
+echo -e "\e[33mEscribe un comenmtario de actualizacion!\e[0m"
+read -e COMMENT
+
+# agergar comentario de actualizacion
+TIME=$(date +"%a %-d %b %g %H:%M")
+git commit -m "$COMMENT $TIME"
+
+# actualizar archivos
+git push -u origin master

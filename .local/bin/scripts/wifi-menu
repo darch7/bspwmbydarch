@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xdotool getactivewindow set_window --class nmtui
+nmtui
+xdotool getactivewindow set_window --class XTerm

@@ -1,0 +1,164 @@
+#####################################################################################
+#                                                                                   #
+#                      ALT + F12 (PDF de atajos de bspwm)                           #
+#####################################################################################
+***** DOY POR HECHO QUE YA TIENES BSPWM INSTALADO PARA SABER COMO SE INSTALA BSPWM PUEDES CHECAR TU MISMO ******
+
+
+0- sudo pacman -S bspwm sxhkd 
+
+1- cd bspwmbydarch/compilar/st
+
+2- sudo make install 
+
+3 - cd
+
+4- cp -R bspwmbydarch/config/* ~/.config/
+
+5- cp -R bspwmbydarch/.local/* ~/
+
+6- sudo chmod +x .local/bin
+
+7- mkdir -p ~/.local/share/fonts 
+
+8- cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
+9- cd 
+
+----------------------------------------------------------------------------------------------------------
+
+
+#####################################################################################
+#                                                                                   #
+#                                DEPENDENCIAS                                       #
+#####################################################################################
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+* instalar yay! 
+
+1- git clone https://aur.archlinux.org/yay.git ;cd yay ;makepkg -si ;cd ;rm -rf yay
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1- yay -S gtk3-nocsd-git ttf-meslo-nerd-font-powerlevel10k picom-ibhagwan-git polybar-git fzf-extras --noconfirm
+
+------------------------------------------------------------------------
+
+2- sudo pacman -S zsh-theme-powerlevel10k papirus-icon-theme p7zip unrar zip unzip gzip bzip2 gtk3-nocsdlzop alsa-plugins alsa-utils ttf-dejavu ttf-liberation ttf-bitstream-vera wmname rofi lxrandr polkit-gnome ueberzug slock fzf telegram-desktop neofetch calcurse bc pcmanfm xarchiver lxappearance leafpad transmission-gtk nitrogen pavucontrol geany neovim sxiv blueberry ffmpeg maim xclip xdotool mpv unclutter dunst zathura zathura-pdf-mupdf htop zsh zsh-autosuggestions zsh-history-substring-search zsh-completions zsh-syntax-highlighting ranger ttf-joypixels adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts awesome-terminal-fonts ttf-font-awesome -needed --noconfirm
+
+------------------------------------------------------------
+instalar spotify + adblock
+------------------------------------------------------------
+#### opcion 1 ####
+1- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45 8FD3D9A8D3800305A9FFF259D1742AD60D811D58 
+
+( en caso que no te tome la llave) ===> curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+
+
+
+2- yay -S spotify spotify-adblock-linux --noeditmenu --noconfirm --needed
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#### opcion 2 ####
+# Herramientas
+(sudo pacman -S wget git tar)
+
+1- git clone https://github.com/abba23/spotify-adblock-linux.git
+2- cd spotify-adblock-linux
+3- wget -O cef.tar.bz2 http://opensource.spotify.com/cefbuilds/cef_binary_80.0.8%2Bgf96cd1d%2Bchromium-80.0.3987.132_linux64_minimal.tar.bz2
+4- tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
+5- make
+6- sudo make install
+7- gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
+8- yay -S spotify
+
+##### Opcion 3 ##### 
+# Herramientas 
+(sudo pacman -S wget git tar)
+
+ dirigirse a esa ubicacion y bajarse spotify pero en .deb 
+1- https://aur.archlinux.org/packages/spotify/
+2- git clone https://github.com/Asher256/archalien.git
+3- mover el .deb dentro de la carpeta de alien.
+4 ejecutar ./archalien.py (nombre del paquete .deb) enter
+5-  gpg --keyserver pool.sks-keyservers.net --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
+6- sudo pacman -U (nombre del paquete tar.gz que creó alien)
+7-  git clone https://github.com/abba23/spotify-adblock-linux.git
+8- cd spotify-adblock-linux
+9- wget -O cef.tar.bz2 http://opensource.spotify.com/cefbuilds/cef_binary_80.0.8%2Bgf96cd1d%2Bchromium-80.0.3987.132_linux64_minimal.tar.bz2
+10- make
+11- sudo make install
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+########## root ~ fzf personalizacion y configuracion 
+
+1- copiar el contenido de la carpeta Root/fzf en la carpeta /usr/share/fzf 
+
+se debe iniciar pcmanfm en modo root o por terminal con sudo.
+
+
+------------------------------------------------------------------------------------------------
+
+######### instalacion y configuracion Lightdm 
+
+sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings 
+
+sudo systemctl enable lightdm 
+
+*Nota para poner imagen a lightdm el wallpeaper tiene que estar en directorio root ej /usr/share/wall.
+
+--------------------------------------------------------------------------------------------------
+
+######## Aplicar cambios en st (temas)
+
+escribir en terminal 
+
+temas 
+
+se aplicaran los cambios de xresources donde estan alojados todos los temas
+
+---------------------------------------------------------------------------------------------------
+(OPCIONAL) 
+
+##### Instalar tema powerlevel10k 
+
+sudo pacman -S zsh-theme-powerlevel10k
+
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+confuigurar 
+
+p10k configure
+
+---------------------------------------------------------------------------------------------------------------------
+########## QEMU INSTALL 
+---------------------------------------------------------------------------------------------------------------------
+
+1- sudo pacman -S qemu qemu-guest-agent qemu-arch-extra qemu-block-gluster qemu-block-iscsi qemu-block-rbd samba edk2-ovmf virt-viewer virt-manager libvirt ebtables dnsmasq bridge-utils openbsd-netcat spice spice-gtk spice-vdagent xf86-video-qxl 
+
+2- sudo systemctl enable --now libvirtd virtlogd virtlogd.socket virtlockd.socket spice-vdagentd
+
+3- sudo virsh net-autostart default
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+#################### SI NO USASTE DARCH INSTALL #######################      EXTRAS
+
+
+--------------------------------------------------------------------------------------------------------------
+Mega pack de arch (codecs de multimedia y para que el sistema reconozca todo tipo de formato de particiones)
+
+----------------------------------------------------------------------------------------------------------------
+
+1- sudo pacman -S p7zip unrar zip unzip gzip bzip2 lzop git wget neofetch lsb-release xdg-user-dirs android-file-transfer android-tools android-udev libmtp libcddb gvfs gvfs-afc gvfs-smb gvfs-gphoto2 gvfs-mtp gvfs-goa gvfs-nfs dosfstools jfsutils f2fs-tools btrfs-progs exfat-utils ntfs-3g reiserfsprogs xfsprogs nilfs-utils polkit gpart mtools ffmpeg aom libde265 x265 x264 libmpeg2 xvidcore libtheora libvpx schroedinger sdl gstreamer gst-plugins-bad gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly xine-lib lame --needed --noconfirm
+
+# aceleracion grafica para intel 
+
+2- sudo pacman -S xf86-video-intel vulkan-intel mesa lib32-mesa intel-media-driver libva-intel-driver libva-vdpau-driver libvdpau-va-gl libva-utils vdpauinfo intel-compute-runtime clinfo ocl-icd lib32-ocl-icd opencl-headers --needed --noconfirm

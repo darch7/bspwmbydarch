@@ -1,0 +1,4 @@
+#!/bin/sh
+
+hora=$(date +%H:%M)
+echo "$hora"

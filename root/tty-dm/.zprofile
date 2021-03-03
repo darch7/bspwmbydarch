@@ -1,0 +1,2 @@
+neofetch --logo
+startx

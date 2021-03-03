@@ -1,0 +1,6 @@
+#! /bin/bash 
+
+
+# Script para polybar o cualquier otra barra.
+mem="$(free -h | awk '/^Mem:/ {print $3 }' | sed -e 's/.$//')"
+echo -e "$mem"

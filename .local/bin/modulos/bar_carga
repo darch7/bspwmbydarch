@@ -1,0 +1,36 @@
+#!/bin/sh
+
+
+# En caso debe tener instalada la dependencia ACPI en otros no.
+estado=$(acpiconf -i 0 | grep -i "State:" | awk -F " " '{print $2}')
+if [ ${estado} = charging ]
+then
+icono_carga=""
+elif [ ${estado} = "high" ]
+then
+icono_carga=""
+elif [ ${estado} = unknown ]
+then
+icono_carga=""
+else
+icono_carga=""
+fi
+
+bateria=$(acpiconf -i 0 | grep -i "Remaining capacity:" | awk -F " " '{print $3}' | sed 's/%//g')
+if [ $bateria -lt "10" ]
+then
+icono_bateria=""
+elif [ $bateria -lt "20" ]
+then
+icono_bateria=""
+elif [ $bateria -lt "50" ]
+then
+icono_bateria=""
+elif [ $bateria -lt "90" ]
+then
+icono_bateria=""
+else
+icono_bateria=""
+fi
+
+echo $icono_carga $icono_bateria

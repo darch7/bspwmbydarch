@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$(printf "  Selecione el area\\n  Ventana activa\\n  Toda la pantalla\\n   Selecionar area (copiar)\\n   Ventana activa (copiar)\\n  Toda la pantalla (copiar)" | rofi -p "  Selecione el tipo de captura" -dmenu -lines 6 -width 20 )" in
+	*"Selecione el area") maim -m 1 -s D-shot-area-seleccionada-"$(date '+%y%m%d-%H%M-%S').png" ;;
+	*"Ventana activa") maim -m 1 -i "$(xdotool getactivewindow)" D-shot-ventana-activa-"$(date '+%y%m%d-%H%M-%S').png" ;;
+	*"Toda la pantalla") maim -m 1 D-shot-"$(date '+%y%m%d-%H%M-%S').png" ;;
+	*"Selecionar area (copiar)") maim -m 1 -s | xclip -selection clipboard -t image/png ;;
+	*"Ventana activa (copiar)") maim -m 1 -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png ;;
+	*"Toda la pantalla (copiar)") maim -m 1 | xclip -selection clipboard -t image/png ;;
+esac

@@ -1,0 +1,71 @@
+#!/bin/sh
+
+prompt() { \
+  choice=$(printf "   Screencast\n  Solo video\n  Solo audio\n  Webcam flotante\n   Grabar webcam\n  Detener grabacion" | rofi -p "  Seleccione tipo de grabacion " -dmenu -lines 6 -width 17)
+  case $choice in 
+    *"Screencast") screencast;;
+    *"Solo video") video;;
+    *"Solo audio") audio;;
+    *"Webcam flotante") webcamflotante;;
+    *"Grabar webcam") webcam;;
+    *"Detener grabacion") detener;;
+  esac
+}
+
+screencast() { \
+  ffmpeg -y \
+  -f x11grab \
+  -framerate 60 \
+  -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
+  -i "$DISPLAY" \
+  -f alsa -i default \
+  -r 60 \
+  -c:v h264 -crf 0 -preset ultrafast -c:a aac \
+  "$HOME/grabacion-$(date '+%y%m%d-%H%M-%S').mp4" &
+  echo $! > /tmp/recordingpid
+}
+
+video() { ffmpeg \
+  -f x11grab \
+  -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
+  -i "$DISPLAY" \
+  -c:v libx264 -qp 0 -r 60 \
+  "$HOME/video-$(date '+%y%m%d-%H%M-%S').mkv" &
+  echo $! > /tmp/recordingpid
+}
+
+audio() { \
+  ffmpeg \
+  -f alsa -i default \
+  -c:a flac \
+  "$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
+  echo $! > /tmp/recordingpid
+}
+
+webcamflotante() { \
+  pkill -f /dev/video || mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=20%  --title="mpvfloat" /dev/video0 
+  echo $! > /tmp/recordingpid
+}
+
+webcam() { ffmpeg \
+  -f v4l2 \
+  -i /dev/video0 \
+  -video_size 1920x1080 \
+  "$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
+  echo $! > /tmp/recordingpid
+}
+
+detener() { \
+  killall ffmpeg > /dev/null 2>&1
+  rm -f /tmp/recording_pid
+}
+
+case "$1" in 
+  *"Screencast") screencast;;
+  *"Solo video") video;;
+  *"Solo audio") audio;;
+  *"Webcam flotante") webcamflotante;;
+  *"Grabar webcam") webcam;;
+  *"Detener grabacion") detener;;
+  *)  ([ -f /tmp/recording_pid ] && exit 1) || prompt;;
+esac

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+    rofi_root)
+        rofi -modi drun -show drun -width 22 -display-drun " Correr como root" -run-command "sudo -A {cmd}"
+        exit
+        ;;
+    *)
+		rofi -dmenu -password -width 25 -no-fixed-num-lines -p "$(printf " $1" | sed s/://)"
+		exit
+		;;
+esac

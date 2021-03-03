@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=STerminal
+GenericName=Terminal
+Comment=Suckless terminal emulator for x
+Exec=st -e
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Icon=utilities-terminal
+Categories=System;Terminal;Emulator;
+Keywords=shell,propmpt,command;commandline;cmd;
