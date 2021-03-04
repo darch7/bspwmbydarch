@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-reload_bspwm="bspc wm -r;killall dunst;dunstify -i $HOME/.config/dunst/iconpng/arch.png BSPWMRC RECARGADO"
+reload_bspwm="bspc wm -r;killall dunst;sleep 1;dunstify -i $HOME/.config/dunst/iconpng/arch.png BSPWMRC RECARGADO"
 reload_sxhkd="pkill -USR1 -x sxhkd;dunstify -i $HOME/.config/dunst/iconpng/arch.png SXHKDRC RECARGADO"
 reb="reboot"
 shut="poweroff"
