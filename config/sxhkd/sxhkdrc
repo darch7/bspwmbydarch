@@ -27,7 +27,7 @@ super + ctrl + {m,x,y,z}
 		bspc node -g {marked,locked,sticky,private}
 # Recargar por defecto
 super + alt {r,e}
-			{bspc wm -r;dunstify -i ~/.local/bin/scripts/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i ~/.local/bin/scripts/arch.png SXHKDRC RECARGADO}
+			{bspc wm -r;dunstify -i $HOME/.config/dunst/iconpng/arch.png BSPWMRC RECARGADO,pkill -USR1 -x sxhkd;dunstify -i $HOME/.config/dunst/iconpng/arch.png SXHKDRC RECARGADO}
 #_________________________Apps__________________________________________
 # ranger/ranger root
 super + {_,shift +} e
