@@ -106,15 +106,15 @@ super + ctrl + {1-9}
 		bspc node -o 0.{1-9}
 #________________________move/resize____________________________________
 # mover ventana flotante
-super + alt + {Left,Down,Up,Right}
+super + alt + {h,j,k,l}
 		bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # expander ventana
-ctrl + {Left,Down,Up,Right}
+ctrl + {h,j,k,l}
 		bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contraer ventana
-ctrl + shift + {Left,Down,Up,Right}
+ctrl + shift + {h,j,k,l}
 		bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # resize gaps de ventanas
