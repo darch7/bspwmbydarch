@@ -123,10 +123,10 @@ super { ,+ shift }+ z
 #_______________________Multimedia______________________________________
 # Subir,Bajar Volumen
 XF86Audio{Raise,Lower}Volume
-		amixer sset Master 5%{+,-}
+		amixer set Master 5%{+,-} unmute
 # Mute
 XF86AudioMute
-		amixer -D pulse set Master 1+ toggle
+		amixer set Master toggle
 # Play/Pause
 shift + F7
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
