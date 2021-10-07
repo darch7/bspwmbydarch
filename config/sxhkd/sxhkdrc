@@ -18,7 +18,7 @@ super + {_,shift +} Return
 # Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
 super + BackSpace
 		$HOME/.local/bin/scripts/menuapagado
-# Cerrar apps<
+# Cerrar apps
 super + q
 		bspc node -{c,k}
 
@@ -37,34 +37,19 @@ super + {_,shift +} r
 		{pcmanfm,sudo -A pcmanfm}	
 # Browser
 super + w
-		google-chrome-stable
-# Pavucontrol
-super + v
-		pavucontrol
-# Torrent
-super + b
-		transmission-gtk
+		brave-bin		
 # Nitrogen/walls
 super + n
 		nitrogen
 # Spotify
 super + m
 		env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
-# Leafpad
-super + l
-		leafpad
 # Telegram
 super + t
 		telegram-desktop
 # Wifi-menu/nmtui
 super + a
 		st -e nmtui
-# Htop
-super + h
-		st -e htop
-# Qemu the best VM
-super + k
-		virt-manager
 # Nvim
 super + shift + n
  		st -e nvim
@@ -74,7 +59,7 @@ super + {o,s,i}
 		{bspc node @focused:/ -R 90,bspc node focused -t \~floating,bspc node -g sticky}
 
 # Cursor de ventanas
-super + {_,shift + }{Left,Down,Up,Right}
+super + {_,shift + }{h,j,k,l}
 		bspc node -{f,s} {west,south,north,east}
 
 # Fullscreen
@@ -82,7 +67,7 @@ super + f
 		 bspc node -t {fullscreen,tiled}
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+super + bracket{h,l}
 		bspc desktop -f {prev,next}.local
 
 # Volver a el area de trabajo anterior
@@ -136,21 +121,21 @@ super + ctrl + minus
 		amixer set Master toggle		
 		
 # Play/Pause
-shift + F7
+shift + period
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 # Prev
-shift + F6
+shift + comma
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 # Next
-shift + F8
+shift + slash
 		dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 #Brightness up
 #XF86MonBrightness
-shift + Up
+shift + equal
 		xbacklight -inc 5
 #Brightness down
 #XF86MonBrightnessDown
-shift + Down
+shift + minus
 		xbacklight -dec 5
 #__________________________Scripts______________________________________
 # Menu de capturas
