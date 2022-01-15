@@ -1,4 +1,4 @@
-#                  ██      ██          ██
+        █      ██          ██
 #                 ░██     ░██         ░██
 #   ██████ ██   ██░██     ░██  ██     ░██
 #  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
@@ -10,10 +10,10 @@
 
 #_______________________Atajos Basicos__________________________________
 # launch menu
-super + {_,shift +} d
-		{rofi -modi drun -show drun -width 22,pass rofi_root}
+super + d
+		{rofi -modi drun -show drun -width 22,pass rofi_root} 
 #Terminal
-super + {_,shift +} Return
+super {_,shift +} Return
 		{st,st -e tmux} 
 # Menu/Apagado/Reboot/Recargar,bspwm,sxhkd/bloqueodepantalla
 super + BackSpace

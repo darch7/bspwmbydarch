@@ -42,6 +42,8 @@ element-icon { size: 3.9ch ; }
     background-color: @background;
     border-color: @selected-normal-background;
     padding: 5;
+    width:15%;
+    height:25%;
 }
 
 #mainbox {
